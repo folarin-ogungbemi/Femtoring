@@ -1,4 +1,39 @@
+/************
+GENERAL STYLE
+ *********** */
+/*General*/
+
+:root{
+    --col-light:#fff;
+}
+
 *{
-    background-color: #000;
-    color: #fff;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Navbar */
+.top-nav{
+    background-color: var(--col-light);
+    box-shadow: 0.5px 0.5px 10px 0.5px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+/*****************
+MEDIA-QUERIES
+*************** */
+
+@media screen and (max-width: 992px)  {
+    .navbar-brand{
+        margin-left: 1rem !important;
+    }
+    .nav-internal-links{
+        justify-content: start !important;
+        margin-left: 1rem;
+    }
+    .navbar-toggler{
+        margin-right: -1rem !important;
+    }
 }
