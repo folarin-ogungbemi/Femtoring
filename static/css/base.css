@@ -59,8 +59,8 @@ GENERAL STYLE
 
 /* Info box */
 #info-container {
-    margin-top: 2vh;
-    margin-bottom: 2vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
     margin-left: auto;
     margin-right: auto;
     width: 98%;
@@ -73,6 +73,19 @@ GENERAL STYLE
     padding: 20px;
     background-color:#c57171;
     border: none;
+}
+
+/* Testimonials */
+#testimonials-container{
+    width: 100%;
+    height: 60vh;
+}
+
+.testimonial-image {
+    height: 50%;
+    width: 50%;
+    border-radius: 50%;
+    background-color: #0000002b;
 }
 
 /*****************
@@ -92,5 +105,9 @@ MEDIA-QUERIES
     }
     #hero-image-overlay{
         width: 60%
+    }
+    .testimonial-image{
+        height: 35%;
+        width: 35%;
     }
 }
