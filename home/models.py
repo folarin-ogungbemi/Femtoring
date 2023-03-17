@@ -35,6 +35,9 @@ class Woman(User):
             self.type = User.Type.WOMAN
             return super().save(*args, **kwargs)
 
+    def __str__(self):
+        return self.username
+
 
 class MentorManager(BaseUserManager):
     def get_queryset(self, *args, **kwargs):
@@ -54,6 +57,9 @@ class Mentor(User):
         if not self.pk:
             self.type = User.Type.MENTOR
             return super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.username
 
 
 class Booking(models.Model):
