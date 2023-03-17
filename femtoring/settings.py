@@ -41,7 +41,6 @@ CSRF_TRUSTED_ORIGINS = [
     'https://*.femtoring-team2.herokuapp.com/'
     ]
 
-
 # Application definition
 
 INSTALLED_APPS = [
