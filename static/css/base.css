@@ -37,3 +37,27 @@ MEDIA-QUERIES
         margin-right: -1rem !important;
     }
 }
+
+/*****************
+ABOUT US
+*************** */
+
+.col-6, .col-md-8 {
+    background-color: aqua;
+    padding: 5px;
+    margin: 5px;
+}
+
+.element {
+    // Three columns to start
+    @include row-cols(3);
+  
+    // Five columns from medium breakpoint up
+    @include media-breakpoint-up(md) {
+      @include row-cols(5);
+    }
+  }
+
+  .container {
+    background-color: darkorange;
+  }
