@@ -53,16 +53,24 @@ GENERAL STYLE
 }
 
 #hero-button {
-    background-color:#c57171;
+    background-color:#d6b7b7;
     border: none;
 }
 
-/* Hero Image */
+/* Info box */
 #info-container {
-    margin-top: 5vh;
-    height: 30vh;
-    width: 90%;
-    background-color: #000000;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    margin-left: auto;
+    margin-right: auto;
+    width: 98%;
+    height: auto;
+    border-radius: 5px;
+    background-color: #6b9bc497;
+}
+
+#info-container div {
+    padding: 20px;
 }
 
 /*****************
