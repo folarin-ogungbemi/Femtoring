@@ -21,6 +21,42 @@ GENERAL STYLE
     width: 100%;
 }
 
+/* Landing Page */
+
+/* Hero Image */
+#hero-image-container{
+    height: 60vh;
+    background-image: url("https://resources.workable.com/wp-content/uploads/2019/03/women-technology-02-1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#hero-image-overlay{
+    background-color: rgba(0, 0, 0, 0.47);
+    padding: 30px;
+    width: 30%;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#hero-image-overlay h2{
+    color: #ffffff;
+    font-weight: 800;
+}
+
+#hero-image-overlay p{
+    color: #ffffff;
+}
+
+#hero-button {
+    background-color:#c57171;
+    border: none;
+}
+
 /*****************
 MEDIA-QUERIES
 *************** */
@@ -35,5 +71,8 @@ MEDIA-QUERIES
     }
     .navbar-toggler{
         margin-right: -1rem !important;
+    }
+    #hero-image-overlay{
+        width: 60%
     }
 }

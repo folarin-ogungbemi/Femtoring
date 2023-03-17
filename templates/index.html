@@ -3,5 +3,11 @@
 
 {% block title %} Home Page {% endblock %}
 {% block content %}
-<h1>Welcoming Femtoring</h1>
+<div class="row no-gutters" id="hero-image-container">
+    <div id="hero-image-overlay">
+        <h2 class="fs-1">Hero image Overlay</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit similique culpa optio iste soluta atque est accusamus fugit veniam recusandae necessitatibus ut voluptate dolor quos debitis natus, quo, nobis voluptates.</p>
+        <a class="btn btn-primary" id="hero-button" href="{% url 'mentors_page' %}">Meet The Mentors</a>
+    </div>
+</div>
 {% endblock %}
