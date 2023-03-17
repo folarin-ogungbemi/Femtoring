@@ -23,8 +23,6 @@ class WomanManager(BaseUserManager):
 
 
 class Woman(User):
-    base_type = User.Type.WOMAN
-
     objects = WomanManager()
 
     class Meta:
@@ -46,8 +44,6 @@ class MentorManager(BaseUserManager):
 
 
 class Mentor(User):
-    base_type = User.Type.MENTOR
-
     objects = MentorManager()
 
     class Meta:
