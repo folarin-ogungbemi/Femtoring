@@ -34,6 +34,14 @@ if development:
 else:
     ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.8000-folarinogungb-femtoring-cocwxzcxe0y.ws-eu90.gitpod.io/',
+    'https://*.8000-folarinogungb-femtoring-3af5eilakby.ws-eu90.gitpod.io/',
+    'https://*.8000-folarinogungb-femtoring-fqeo2f18c6j.ws-eu90.gitpod.io/',
+    'https://*.femtoring-team2.herokuapp.com/',
+    ]
+
+
 
 # Application definition
 
@@ -93,18 +101,21 @@ WSGI_APPLICATION = 'femtoring.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-if development:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-else:
-    DATABASES = {
+# if development:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
+# else:
+#     DATABASES = {
+#         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+#         }
+
+DATABASES = {
         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
         }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
