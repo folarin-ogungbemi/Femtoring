@@ -28,8 +28,3 @@ class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = ['user', 'mentor', 'date', 'date', 'time', 'message']
-
-class BookingForm(ModelForm):
-    class Meta:
-        model = Booking
-        fields = ['user', 'mentor', 'date', 'date', 'time', 'message']
