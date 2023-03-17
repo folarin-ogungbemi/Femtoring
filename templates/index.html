@@ -3,5 +3,49 @@
 
 {% block title %} Home Page {% endblock %}
 {% block content %}
-<h1>Welcoming Femtoring</h1>
+<div class="row no-gutters" id="hero-image-container">
+    <div id="hero-image-overlay">
+        <h2 class="fs-1">Hero image Overlay</h2>
+        <a class="btn btn-primary" id="hero-button" href="{% url 'mentors_page' %}">Meet The Mentors</a>
+    </div>
+</div>
+<div class="row text-center align-items-center" id="info-container">
+    <div class="col-12 col-md-4">
+        <h3>Information section 1</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum amet voluptate assumenda reprehenderit, quo doloribus nemo ex a exercitationem explicabo neque accusantium dolore, eveniet recusandae? Fugit rem delectus nostrum! Eaque?</p>
+        <a href="{% url 'about_us_page' %}" class="text-decoration-none fs-5">About Us</a>
+    </div>
+    <div class="col-12 col-md-4">
+        <h3>Information section 1</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum amet voluptate assumenda reprehenderit, quo doloribus nemo ex a exercitationem explicabo neque accusantium dolore, eveniet recusandae? Fugit rem delectus nostrum! Eaque?</p>
+        <a href="{% url 'mentors_page' %}" class="text-decoration-none fs-5">Mentors</a>
+    </div>
+    <div class="col-12 col-md-4">
+        <h3>Information section 1</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum amet voluptate assumenda reprehenderit, quo doloribus nemo ex a exercitationem explicabo neque accusantium dolore, eveniet recusandae? Fugit rem delectus nostrum! Eaque?</p>
+        <a class="text-decoration-none fs-5" href="{% url 'account_signup' %}">Sign Up</a> 
+    </div>
+</div>
+<div class="container-fluid" id="testimonials-container">
+    <div class="row no-gutters h-100 text-center">
+        <div class="col-12 col-lg-4 testimonial-box">
+            <div class="testimonial-image"></div>
+            <br>
+            <p>Name - Job/Role/Area of Interest</p>
+            <p class="fst-italic fw-bold">"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque et accusantium fuga."</p>
+        </div>
+        <div class="col-12 col-lg-4 testimonial-box">
+            <div class="testimonial-image"></div>
+            <br>
+            <p>Name - Job/Role/Area of Interest</p>
+            <p class="fst-italic fw-bold">"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque et accusantium fuga."</p>
+        </div>
+        <div class="col-12 col-lg-4 testimonial-box">
+            <div class="testimonial-image"></div>
+            <br>
+            <p>Name - Job/Role/Area of Interest</p>
+            <p class="fst-italic fw-bold">"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque et accusantium fuga."</p>
+        </div>
+    </div>
+</div>
 {% endblock %}

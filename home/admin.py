@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import User, Woman, Mentor
+from home.models import User, Booking, Mentor, Woman
 
 
 class CustomUserAdmin(UserAdmin):
@@ -44,3 +44,13 @@ class MentorAdmin(UserAdmin):
 admin.site.register(User, CustomUserAdmin)
 admin.site.register(Woman, WomanAdmin)
 admin.site.register(Mentor, MentorAdmin)
+
+
+@admin.register(Mentor)
+class MentorAdmin(admin.ModelAdmin):
+    list_display = ('username', 'email')
+
+
+@admin.register(Booking)
+class BookingAdmin(admin.ModelAdmin):
+    list_display = ('mentor', 'user', 'date', 'time')
