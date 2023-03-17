@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import TemplateView, ListView
+from home.models import Mentor
+from home.forms import BookingForm
 
 
 class HomePageView(TemplateView):
@@ -12,6 +14,16 @@ class AboutView(TemplateView):
     template_name = "about.html"
 
 
-class MentorsView(TemplateView):
+class MentorsList(ListView):
     """Render the Mentors page"""
+    model = Mentor 
     template_name = "mentors.html"
+    paginate_by = 6
+
+
+class MentorDetail(TemplateView):
+    template_name = "profile.html"
+
+
+class BookingView(TemplateView):
+    template_name = "booking.html"
