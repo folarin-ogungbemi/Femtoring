@@ -35,10 +35,10 @@ else:
     ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-folarinogungb-femtoring-cocwxzcxe0y.ws-eu90.gitpod.io/',
-    'https://8000-folarinogungb-femtoring-3af5eilakby.ws-eu90.gitpod.io/',
-    'https://8000-folarinogungb-femtoring-fqeo2f18c6j.ws-eu90.gitpod.io/',
-    'https://femtoring-team2.herokuapp.com/',
+    'https://*.8000-folarinogungb-femtoring-cocwxzcxe0y.ws-eu90.gitpod.io/',
+    'https://*.8000-folarinogungb-femtoring-3af5eilakby.ws-eu90.gitpod.io/',
+    'https://*.8000-folarinogungb-femtoring-fqeo2f18c6j.ws-eu90.gitpod.io/',
+    'https://*.femtoring-team2.herokuapp.com/',
     ]
 
 
@@ -83,6 +83,8 @@ ACCOUNT_FORMS = {
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+AUTH_USER_MODEL = 'home.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
