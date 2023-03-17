@@ -68,7 +68,7 @@ class Booking(models.Model):
     user = models.ForeignKey(Woman, on_delete=models.CASCADE,
                              related_name="user")
     date = models.DateField(default=datetime.now)
-    time = models.TimeField(default=datetime.now, blank=True)
+    time = models.TimeField(default=datetime.now)
     message = models.TextField()
 
     class Meta:
