@@ -62,8 +62,15 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False
+ACCOUNT_USERNAME_MIN_LENGTH = 3
+LOGIN_URL = '/account/login/'
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+
+AUTH_USER_MODEL = 'home.User'
 
 AUTH_USER_MODEL = 'home.User'
 
@@ -152,9 +159,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_STORAGE = 'cloudinary_storage.storage.'\
-                      'StaticHashedCloudinaryStorage'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
