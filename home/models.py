@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import BaseUserManager
+from datetime import datetime
 
 
 class User(AbstractUser):
@@ -53,3 +54,19 @@ class Mentor(User):
         if not self.pk:
             self.type = User.Type.MENTOR
             return super().save(*args, **kwargs)
+
+
+class Booking(models.Model):
+    mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE,
+                               related_name="book_mentor")
+    user = models.ForeignKey(Woman, on_delete=models.CASCADE,
+                             related_name="user")
+    date = models.DateField(default=datetime.now)
+    time = models.TimeField(default=datetime.now, blank=True)
+    message = models.TextField()
+
+    class Meta:
+        unique_together = [['mentor', 'date', 'time']]
+
+    def __str__(self):
+        return f"A meeting with {self.mentor} has been booked by {self.user}."
