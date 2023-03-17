@@ -35,16 +35,14 @@ else:
     ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-folarinogungb-femtoring-cocwxzcxe0y.ws-eu90.gitpod.io/',
-    'https://8000-folarinogungb-femtoring-3af5eilakby.ws-eu90.gitpod.io/',
-    'https://8000-folarinogungb-femtoring-fqeo2f18c6j.ws-eu90.gitpod.io/',
-    'https://femtoring-team2.herokuapp.com/',
+    'https://*.8000-folarinogungb-femtoring-cocwxzcxe0y.ws-eu90.gitpod.io/',
+    'https://*.8000-folarinogungb-femtoring-3af5eilakby.ws-eu90.gitpod.io/',
+    'https://*.8000-folarinogungb-femtoring-fqeo2f18c6j.ws-eu90.gitpod.io/',
+    'https://*.femtoring-team2.herokuapp.com/',
     ]
 
 
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -64,8 +62,17 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False
+ACCOUNT_USERNAME_MIN_LENGTH = 3
+LOGIN_URL = '/account/login/'
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+
+AUTH_USER_MODEL = 'home.User'
+
+AUTH_USER_MODEL = 'home.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -96,7 +103,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'femtoring.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -153,9 +159,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_STORAGE = 'cloudinary_storage.storage.'\
-                      'StaticHashedCloudinaryStorage'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'

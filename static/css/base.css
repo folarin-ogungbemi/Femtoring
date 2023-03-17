@@ -71,6 +71,8 @@ GENERAL STYLE
 
 #info-container div {
     padding: 20px;
+    background-color:#c57171;
+    border: none;
 }
 
 /*****************
