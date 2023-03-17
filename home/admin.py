@@ -3,7 +3,6 @@ from django.contrib.auth.admin import UserAdmin
 from home.models import User, Booking, Mentor, Woman
 
 
-@admin.register(User, CustomUserAdmin)
 class CustomUserAdmin(UserAdmin):
     model = User
     list_display = ('id', 'username', 'email', 'type', 'is_staff', 'is_active',)
@@ -33,7 +32,6 @@ class WomanAdmin(UserAdmin):
     ordering = ('id',)
 
 
-@admin.register(Mentor, MentorAdmin)
 class MentorAdmin(UserAdmin):
     model = Mentor
     list_display = ('id', 'username', 'email', 'type', 'is_staff', 'is_active',)
