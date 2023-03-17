@@ -52,9 +52,6 @@ class Migration(migrations.Migration):
                 'constraints': [],
             },
             bases=('home.user',),
-            managers=[
-                ('objects', django.contrib.auth.models.UserManager()),
-            ],
         ),
         migrations.CreateModel(
             name='Woman',
@@ -66,8 +63,5 @@ class Migration(migrations.Migration):
                 'constraints': [],
             },
             bases=('home.user',),
-            managers=[
-                ('objects', django.contrib.auth.models.UserManager()),
-            ],
         ),
     ]

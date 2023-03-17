@@ -24,7 +24,6 @@ class CustomUserAdmin(UserAdmin):
     search_fields = ('username', 'email',)
     ordering = ('id',)
 
-
 class WomanAdmin(UserAdmin):
     model = Woman
     list_display = ('id', 'username', 'email', 'type', 'is_staff', 'is_active',)
@@ -44,11 +43,6 @@ class MentorAdmin(UserAdmin):
 admin.site.register(User, CustomUserAdmin)
 admin.site.register(Woman, WomanAdmin)
 admin.site.register(Mentor, MentorAdmin)
-
-
-@admin.register(Mentor)
-class MentorAdmin(admin.ModelAdmin):
-    list_display = ('username', 'email')
 
 
 @admin.register(Booking)
