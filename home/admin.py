@@ -24,7 +24,6 @@ class CustomUserAdmin(UserAdmin):
     search_fields = ('username', 'email',)
     ordering = ('id',)
 
-
 class WomanAdmin(UserAdmin):
     model = Woman
     list_display = ('id', 'username', 'email', 'type', 'is_staff', 'is_active',)
