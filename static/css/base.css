@@ -57,6 +57,14 @@ GENERAL STYLE
     border: none;
 }
 
+/* Hero Image */
+#info-container {
+    margin-top: 5vh;
+    height: 30vh;
+    width: 90%;
+    background-color: #000000;
+}
+
 /*****************
 MEDIA-QUERIES
 *************** */
