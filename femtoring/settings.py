@@ -38,7 +38,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://*.8000-folarinogungb-femtoring-cocwxzcxe0y.ws-eu90.gitpod.io/',
     'https://*.8000-folarinogungb-femtoring-3af5eilakby.ws-eu90.gitpod.io/',
     'https://*.8000-folarinogungb-femtoring-fqeo2f18c6j.ws-eu90.gitpod.io/',
-    'https://*.herokuapp.com/',
+    'https://*.femtoring-team2.herokuapp.com/',
     ]
 
 
@@ -50,13 +50,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.sites',
+    # ext-apps
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
-    # ext-apps
+    'crispy_forms',
+    'crispy_bootstrap5',
+
+    # local-app
     'home',
 ]
 
@@ -64,6 +68,7 @@ SITE_ID = 1
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False
 ACCOUNT_USERNAME_MIN_LENGTH = 3
 LOGIN_URL = '/account/login/'
@@ -71,6 +76,13 @@ LOGIN_REDIRECT_URL = '/'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/'
 
 AUTH_USER_MODEL = 'home.User'
+
+ACCOUNT_FORMS = {
+    'signup': 'home.forms.CustomSignupForm',
+}
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
