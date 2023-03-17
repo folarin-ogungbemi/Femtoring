@@ -40,6 +40,13 @@ CSRF_TRUSTED_ORIGINS = [
     'https://*.8000-folarinogungb-femtoring-fqeo2f18c6j.ws-eu90.gitpod.io/',
     'https://*.femtoring-team2.herokuapp.com/',
     ]
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.8000-folarinogungb-femtoring-cocwxzcxe0y.ws-eu90.gitpod.io/',
+    'https://*.8000-folarinogungb-femtoring-3af5eilakby.ws-eu90.gitpod.io/',
+    'https://*.8000-folarinogungb-femtoring-fqeo2f18c6j.ws-eu90.gitpod.io/'
+    'https://*.femtoring-team2.herokuapp.com/'
+    ]
+
 
 
 # Application definition
