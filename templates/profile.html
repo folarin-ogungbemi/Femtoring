@@ -3,13 +3,13 @@
 {% block title %} Mentor Profile {% endblock %}
 {% block content %}
 <div class="container border mt-3 w-75" >
-    {% if "placeholder" in mentor.mentor_image.url %}                            
-    <img id="mentor-profile-img" class="rounded-circle" src=" {{ mentor.placeholder}} " alt="">                            
+    {% if "placeholder" in mentor_profile.mentor_image.url %}                            
+    <img id="mentor-profile-img" class="rounded-circle" src=" {{ mentor_profile.placeholder}} " alt="">                            
     {% else %}                            
-    <img id="mentor-profile-img" src=" {{ mentor.mentor_image.url }}" class="rounded-circle" alt="">
+    <img id="mentor-profile-img" src=" {{ mentor_profile.mentor_image.url }}" class="rounded-circle" alt="">
     {% endif %}
 <h1>Contact Mentor</h1>
-<h3 class="my-3">{{ mentor_name }}</h3>
+<h3 class="my-3">{{ mentor_profile.mentor_name }}</h3>
 <h3 class="my-3">Email goes here</h3>
 <input type="date" class="my-3">
 <br>
@@ -18,3 +18,4 @@
     <input type="submit" value="Send message" class="mb-3">
   </form> </div>
 {% endblock %}
+
