@@ -25,11 +25,11 @@ class MentorDetail(DetailView):
 
     def get(self, request, pk=None):
         if pk:
-            mentor_name = get_object_or_404(Mentor, pk=pk)
+            mentor_profile = get_object_or_404(MentorsProfile, pk=pk)
         else:
-            mentor_name = request.mentor_name
+            mentor_profile = request.mentor_id
 
-        return render(request, "profile.html", {"mentor_name": mentor_name})
+        return render(request, "profile.html", {"mentor_profile": mentor_profile})
 
 
 class BookingView(TemplateView):
