@@ -1,19 +1,45 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %} Mentor Profile {% endblock %}
+
 {% block content %}
-<div class="container border mt-3 w-75" >
-    <h2 class="my-3">{{ mentor_profile.mentor_name }}</h2>
-    {% if "placeholder" in mentor_profile.mentor_image.url %}                            
-    <img id="mentor-profile-img" class="rounded-circle" src=" {{ mentor_profile.placeholder}} " alt="">                            
-    {% else %}                            
-    <img id="mentor-profile-img" src=" {{ mentor_profile.mentor_image.url }}" class="rounded-circle" alt="">
-    <img id="mentor-profile-img" src=" {{ mentor_profile.mentor_image.url }}" class="rounded-circle" alt="">
-    {% endif %}
-    <div class="m-3">Expertise: {{ mentor_profile.mentor_expertise }}</div>
-    <div class="m-3">About: {{ mentor_profile.mentor_about }}</div>
-    <div class="m-3">Years of Experience: {{ mentor_profile.mentor_years_of_experience }}</div>
-    <a href="{% url 'booking_page' mentor_profile.pk %}">Contact this Mentor.</a>
+<div class="container-fluid mb-5">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="bottom-bar">Mentor Profile</h2>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-10 col-md-6 mx-auto">
+        <div class="mb-5">
+            {% if "placeholder" in mentor_profile.mentor_image.url %}
+            <div class="mentor-profile-img-bg">                           
+              <img class="mentor-profile-img" width="150" height="150" src="https://res.cloudinary.com/dzdyzl4r5/image/upload/v1679168303/default-mentor_dm35yd.png" alt="">                            
+            </div>
+            {% else %}
+            <div class="mentor-profile-img-bg">                            
+              <img class="mentor-profile-img" src=" {{ mentor_profile.mentor_image.url }}" alt="{{ mentor_profile.mentor_name }} Profile picture">
+            </div>
+              {% endif %}
+            <div class="container d-flex gap-2">
+                <p class="fw-semibold mt-3">{{ mentor_profile.mentor_name }}</p>
+            </div>
+            <a href="#" class="btn action-btn">contact mentor</a>
+        </div>
+        <div class="row">
+          <div class="col-12 bio-card">
+            <p><strong>Area of Expertise:</strong> {{ mentor_profile.mentor_expertise }}</p>
+            <p><strong>Years of Exeperience:</strong> {{ mentor_profile.mentor_years_of_experience }}</p>
+            <p><strong>Bio:</strong> {{ mentor_profile.mentor_about }}</p>
+          </div>
+        </div>
+    </div>
+    <div class="col-10 col-md-6">
+      
+    </div>
+  </div>
 </div>
 {% endblock %}
 
