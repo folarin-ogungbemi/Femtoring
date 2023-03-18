@@ -2,12 +2,20 @@ from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import BaseUserManager
-from datetime import datetime
+from datetime import datetime, time
 from cloudinary.models import CloudinaryField
+from django.core.exceptions import ValidationError
 
-TIMES = (("16:00", "16:00"), ("16:30", "16:30"), ("17:00", "17:00"),
-         ("17:30", "17:30"), ("18:00", "18:00"), ("18:30", "18:30"),
-         ("19:00", "19:30"), ("20:00", "20:00"), ("20:30", "20:30"))
+TIMES = ((time(16, 00), "16:00"), (time(16, 30), "16:30"), (time(17, 00), "17:00"),
+         (time(17, 30), "17:30"), (time(18, 00), "18:00"), (time(18, 30), "18:30"),
+         (time(19, 00), "19:30"), (time(19, 30), "20:00"), (time(20, 00), "20:00"),
+         (time(20, 30), "20:30"))
+
+
+def validate_date(date):
+    if date <= datetime.now().date():
+        raise ValidationError("Date cannot be in the past or the same day.")
+    return date
 
 
 class User(AbstractUser):
@@ -91,8 +99,8 @@ class Booking(models.Model):
                                related_name="book_mentor")
     user = models.ForeignKey(Woman, on_delete=models.CASCADE,
                              related_name="user")
-    date = models.DateField(default=datetime.now)
-    time = models.TimeField(choices=TIMES, default="17:30")
+    date = models.DateField(default=datetime.now, validators=[validate_date])
+    time = models.TimeField(choices=TIMES, default=time(17, 00))
     message = models.TextField()
 
     class Meta:

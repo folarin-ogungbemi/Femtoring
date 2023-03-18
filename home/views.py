@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views.generic import TemplateView, ListView, DetailView
-from django.views.generic.edit import FormView
-from home.models import MentorsProfile, Mentor
+from django.views import generic, View
+from home.models import MentorsProfile, Mentor, User
 from home.forms import BookingForm
+from django.contrib import messages
 
 
 class HomePageView(TemplateView):
@@ -25,16 +26,34 @@ class MentorsList(ListView):
 class MentorDetail(DetailView):
 
     def get(self, request, pk=None):
-        if pk:
 
-            mentor_profile = get_object_or_404(MentorsProfile, pk=pk)
-        else:
-            mentor_profile = request.mentor_id
+        mentor_profile = get_object_or_404(MentorsProfile, pk=pk)
 
         return render(request, "profile.html", {"mentor_profile": mentor_profile})
 
 
-class BookingView(FormView):
-    template_name = "booking.html"
-    form_class = BookingForm
-    success_url = '/'
+class BookingView(View):
+
+    def get(self, request, pk=None):
+
+        mentor = get_object_or_404(MentorsProfile, pk=pk)
+
+        form = BookingForm()
+
+        return render(request, "booking.html", {"mentor": mentor, "form": form})
+
+    def post(self, request, pk=None):
+
+        mentor = get_object_or_404(MentorsProfile, pk=pk)
+
+        form = BookingForm(data=request.POST)
+        if form.is_valid():
+            form.instance.user = request.user
+            booking = form.save(commit=False)
+            booking.mentor = mentor.mentor_name
+            booking.save()
+            messages.success(request, 'Your booking was successful.')
+            return redirect(reverse('home_page'))
+        elif form.errors:
+            messages.error(request, 'There was a problem submitting the form.')
+        return render(request, "booking.html", {"mentor": mentor, "form": form})
