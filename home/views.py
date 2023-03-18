@@ -25,10 +25,6 @@ class MentorDetail(DetailView):
 
     def get(self, request, pk=None):
         if pk:
-<<<<<<< HEAD
-=======
-
->>>>>>> 9e8dda36579bedeaf4625979fe64c6dd84088a87
             mentor_profile = get_object_or_404(MentorsProfile, pk=pk)
         else:
             mentor_profile = request.mentor_id

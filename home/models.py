@@ -5,6 +5,10 @@ from django.contrib.auth.models import BaseUserManager
 from datetime import datetime
 from cloudinary.models import CloudinaryField
 
+TIMES = (("16:00", "16:00"), ("16:30", "16:30"), ("17:00", "17:00"),
+         ("17:30", "17:30"), ("18:00", "18:00"), ("18:30", "18:30"),
+         ("19:00", "19:30"), ("20:00", "20:00"), ("20:30", "20:30"))
+
 
 class User(AbstractUser):
     class Type(models.TextChoices):
@@ -74,7 +78,7 @@ class MentorsProfile(models.Model):
     mentor_about = models.TextField(blank=False, null=False)
     mentor_years_of_experience = models.PositiveIntegerField(
         blank=True, null=True)
-    
+
     class Meta:
         ordering = ['-mentor_id']
 
@@ -88,7 +92,7 @@ class Booking(models.Model):
     user = models.ForeignKey(Woman, on_delete=models.CASCADE,
                              related_name="user")
     date = models.DateField(default=datetime.now)
-    time = models.TimeField(default=datetime.now)
+    time = models.TimeField(choices=TIMES, default="17:30")
     message = models.TextField()
 
     class Meta:
