@@ -18,7 +18,7 @@
                         <h5 class="card-title">{{ mentor.mentor_name }}</h5>
                         <p class="card-text">{{ mentor.mentor_expertise }}</p>
                         <p class="card-text">{{ mentor.mentor_years_of_experience }} years in business</p>
-                        <a href="{% url 'mentor_profile_page' pk=mentor.mentor_name.pk %}" class="mentor-profile-btn btn">Book a session</a>
+                        <a href="{% url 'mentor_profile_page' mentor.pk %}" class="mentor-profile-btn btn">Book a session</a>
                     </div>
                 </div>
                 {% if forloop.counter|divisibleby:3 %}
