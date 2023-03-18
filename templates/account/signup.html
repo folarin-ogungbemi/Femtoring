@@ -10,7 +10,7 @@
     <div class="row">
       <div class="col-12">
         <div class="my-5">
-          <h2>{% trans "Sign Up" %}</h2>
+          <h2 class="bottom-bar">{% trans "Sign Up" %}</h2>
         </div>
         <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
           {% csrf_token %}
@@ -38,9 +38,9 @@
           {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}
-          <button class="btn-submit" type="submit">{% trans "Sign Up" %}</button>
+          <button class="action-btn" type="submit">{% trans "Sign Up" %}</button>
           <div class="my-3">
-            <p>{% blocktrans %}Already have an account? <a  class="text-decoration-none" href="{{ login_url }}">Sign in</a>.{% endblocktrans %}</p>
+            <p>{% blocktrans %}Already have an account? <a  class="text-decoration-none f-text-link" href="{{ login_url }}">Sign in</a>.{% endblocktrans %}</p>
           </div>
         </form>
       </div>

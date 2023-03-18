@@ -1,7 +1,43 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load crispy_forms_tags %}
 {% block title %} Contact Mentor {% endblock %}
 
 {% block content %}
+<div class="form">
+    <div class="container booking-form">
+      <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="my-5">
+                <h2 class="bottom-bar">Contact Mentor</h2>
+            </div>
+          <form method="POST" action="{% url 'booking_page' %}">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-12 col-md-6">
+                  {{ form.mentor | as_crispy_field }}
+                </div>
+                <div class="col-12 col-md-6">
+                  {{ form.user | as_crispy_field }}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  {{ form.date | as_crispy_field }}
+                </div>
+                <div class="col-12 col-md-6">
+                  {{ form.time | as_crispy_field }}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  {{ form.message | as_crispy_field }}
+                </div>
+              </div>
+              <button class="action-btn" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
