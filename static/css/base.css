@@ -5,6 +5,8 @@ GENERAL STYLE
 
 :root{
     --col-light:#fff;
+    --col-main: #c57171;
+    --col-dark: #0a031a;
 }
 
 *{
@@ -13,6 +15,43 @@ GENERAL STYLE
     box-sizing: border-box;
 }
 
+body{
+    color: var(--col-dark);
+}
+
+.f-text-link{
+    color: var(--col-main);
+}
+
+/* Buttons*/
+.action-btn{
+    color: var(--col-light) !important;
+    background: var(--col-main);
+    border: var(--col-main);
+    border-radius: 5px;
+    width: fit-content;
+    padding: 5px 15px;
+}
+
+.asteriskField{
+    color: red;
+    padding-left: 0.3rem;
+}
+
+/************
+FORM STYLE
+ *********** */
+.form-control,
+.form-select{
+    color:var(--col-dark);
+    border-color: var(--col-main);
+}
+
+.form-control:focus,
+.form-select:focus{
+    box-shadow: 0.5px 0.5px 2px 0.5px rgba(0, 0, 0, 0.3);
+    border-color: var(--col-main);
+}
 
 /* Navbar */
 .top-nav{

@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic.edit import FormView
 from home.models import MentorsProfile, Mentor
 from home.forms import BookingForm
 
@@ -25,12 +26,15 @@ class MentorDetail(DetailView):
 
     def get(self, request, pk=None):
         if pk:
-            mentor_name = get_object_or_404(Mentor, pk=pk)
+
+            mentor_profile = get_object_or_404(MentorsProfile, pk=pk)
         else:
-            mentor_name = request.mentor_name
+            mentor_profile = request.mentor_id
 
-        return render(request, "profile.html", {"mentor_name": mentor_name})
+        return render(request, "profile.html", {"mentor_profile": mentor_profile})
 
 
-class BookingView(TemplateView):
+class BookingView(FormView):
     template_name = "booking.html"
+    form_class = BookingForm
+    success_url = '/'
