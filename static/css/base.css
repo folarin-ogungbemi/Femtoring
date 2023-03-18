@@ -38,6 +38,9 @@ body{
     padding-left: 0.3rem;
 }
 
+/************
+FORM STYLE
+ *********** */
 .form-control,
 .form-select{
     color:var(--col-dark);
