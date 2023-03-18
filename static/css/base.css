@@ -67,7 +67,6 @@ FORM STYLE
     background-image: linear-gradient(135deg, var(--col-light) 10%, var(--col-light) 37%, var(--col-main) 160%);
 }
 
-
 .form-control,
 .form-select{
     color:var(--col-dark);
@@ -129,15 +128,15 @@ FORM STYLE
     margin-left: auto;
     margin-right: auto;
     width: 98%;
-    height: auto;
+    min-height: 40vh;
+    background-color:#c57171;
+    border: none;
+    box-shadow: 5px 10px 8px #888888;
     border-radius: 5px;
-    background-color: #6b9bc497;
 }
 
 #info-container div {
     padding: 20px;
-    background-color:#c57171;
-    border: none;
 }
 
 /* Testimonials */
@@ -146,11 +145,36 @@ FORM STYLE
     height: 60vh;
 }
 
+.testimonial-box {
+    justify-content: center;
+    background-color: #6c5c5c65;
+    margin-bottom: 5vh;
+    box-shadow: 5px 10px 8px #888888;
+}
+
 .testimonial-image {
-    height: 50%;
-    width: 50%;
+    height: 15rem;
+    width: 15rem;
     border-radius: 50%;
     background-color: #0000002b;
+}
+
+#t-img1 {
+    background-image: url('https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-position: 100%;
+}
+
+#t-img2 {
+    background-image: url('https://images.pexels.com/photos/7605971/pexels-photo-7605971.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-position: 50%;
+}
+
+#t-img3 {
+    background-image: url('https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-position: 30%;
 }
 
 /* Mentor profiles */
@@ -166,6 +190,11 @@ FORM STYLE
 /*****************
 MEDIA-QUERIES
 *************** */
+@media screen and (max-width: 450px)  {
+    .testimonial-image{
+        display: none;
+    }
+}
 
 @media screen and (max-width: 992px)  {
     .navbar-brand{
@@ -181,8 +210,15 @@ MEDIA-QUERIES
     #hero-image-overlay{
         width: 60%
     }
+}
+
+@media screen and (max-width: 1200px)  {
+    .testimonial-box{
+        width: 75%;
+        height: 40vh;
+    }
     .testimonial-image{
-        height: 35%;
-        width: 35%;
+        height: 10rem;
+        width: 10rem;
     }
 }
