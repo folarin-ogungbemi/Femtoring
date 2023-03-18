@@ -9,8 +9,8 @@
         <div class="col-12">
             <h2>Mentors</h2>
             {% for mentor in object_list %}
-            <div>{{ mentor.username }}</div>
-            <a href="{% url 'mentor_profile_page' %}">Link to mentor's profile</a>
+            <div>{{ mentor.mentor_name }}</div>
+            <a href="{% url 'mentor_profile_page' pk=mentor.mentor_name.pk %}">Link to mentor's profile</a>
             {% endfor %}
         </div>
     </div>

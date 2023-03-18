@@ -79,7 +79,7 @@ class MentorsProfile(models.Model):
         ordering = ['-mentor_id']
 
     def __str__(self):
-        return f"{self.user.username} Mentor"
+        return f"{self.mentor_name.username} Mentor"
 
 
 class Booking(models.Model):
