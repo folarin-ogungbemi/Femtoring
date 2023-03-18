@@ -120,9 +120,16 @@ FORM STYLE
     height: 60vh;
 }
 
+.testimonial-box {
+    justify-content: center;
+    background-color: #6c5c5c65;
+    margin-bottom: 5vh;
+    box-shadow: 5px 10px 8px #888888;
+}
+
 .testimonial-image {
-    height: 50%;
-    width: 50%;
+    height: 10rem;
+    width: 10rem;
     border-radius: 50%;
     background-color: #0000002b;
 }
@@ -140,6 +147,11 @@ FORM STYLE
 /*****************
 MEDIA-QUERIES
 *************** */
+@media screen and (max-width: 450px)  {
+    .testimonial-image{
+        display: none;
+    }
+}
 
 @media screen and (max-width: 992px)  {
     .navbar-brand{
@@ -155,8 +167,15 @@ MEDIA-QUERIES
     #hero-image-overlay{
         width: 60%
     }
+}
+
+@media screen and (max-width: 1200px)  {
+    .testimonial-box{
+        width: 75%;
+        height: 40vh;
+    }
     .testimonial-image{
-        height: 35%;
-        width: 35%;
+        height: 10rem;
+        width: 10rem;
     }
 }
