@@ -22,11 +22,11 @@
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}
           <div class="my-2">
-            <button class="primaryAction btn-submit" type="submit">{% trans "Sign In" %}</button>
+            <button class="primaryAction action-btn" type="submit">{% trans "Sign In" %}</button>
           </div>
         </form>
         <p>{% blocktrans %}If you have not created an account yet, then please
-          <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+          <a class="text-decoration-none f-text-link" href="{{ signup_url }}" >sign up</a> first.{% endblocktrans %}
         </p>
       </div>
     </div>
