@@ -42,10 +42,12 @@ MEDIA-QUERIES
 ABOUT US
 *************** */
 
-.col-6, .col-md-8 {
+.col-col {
     background-color: aqua;
     padding: 5px;
-    margin: 5px;
+    border: 4px;
+    border-color: black;
+    margin: 1px;
 }
 
 .element {
