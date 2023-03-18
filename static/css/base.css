@@ -128,8 +128,8 @@ FORM STYLE
 }
 
 .testimonial-image {
-    height: 25vh;
-    width: 25vh;
+    height: 10rem;
+    width: 10rem;
     border-radius: 50%;
     background-color: #0000002b;
 }
@@ -175,7 +175,7 @@ MEDIA-QUERIES
         height: 40vh;
     }
     .testimonial-image{
-        height: 30vh;
-        width: 30vh;
+        height: 10rem;
+        width: 10rem;
     }
 }
