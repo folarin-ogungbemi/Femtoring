@@ -19,8 +19,27 @@ body{
     color: var(--col-dark);
 }
 
+header{
+    min-height: 10svh;
+}
+
 .f-text-link{
     color: var(--col-main);
+}
+
+.bottom-bar{
+    position: relative;
+    width: fit-content;
+}
+
+.bottom-bar::before{
+    content: '';
+    position: absolute;
+    top: 100%;
+    height: 5px;
+    width: 100%;
+    border-radius: 100vw;
+    background-color: var(--col-main);
 }
 
 /* Buttons*/
@@ -41,6 +60,14 @@ body{
 /************
 FORM STYLE
  *********** */
+
+ .form{
+    min-height: 90svh;
+    background-color: var(--col-light);
+    background-image: linear-gradient(135deg, var(--col-light) 10%, var(--col-light) 37%, var(--col-main) 160%);
+}
+
+
 .form-control,
 .form-select{
     color:var(--col-dark);
@@ -56,7 +83,6 @@ FORM STYLE
 /* Navbar */
 .top-nav{
     background-color: var(--col-light);
-    box-shadow: 0.5px 0.5px 10px 0.5px rgba(0, 0, 0, 0.3);
     width: 100%;
 }
 
