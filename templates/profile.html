@@ -2,17 +2,8 @@
 {% load static %}
 {% block title %} Mentor Profile {% endblock %}
 {% block content %}
-<div class="container border mt-3 w-75" >
-    <h2 class="my-3">{{ mentor_profile.mentor_name }}</h2>
-    {% if "placeholder" in mentor_profile.mentor_image.url %}                            
-    <img id="mentor-profile-img" class="rounded-circle" src=" {{ mentor_profile.placeholder}} " alt="">                            
-    {% else %}                            
-    <img id="mentor-profile-img" src=" {{ mentor_profile.mentor_image.url }}" class="rounded-circle" alt="">
-    <img id="mentor-profile-img" src=" {{ mentor_profile.mentor_image.url }}" class="rounded-circle" alt="">
-    {% endif %}
-    <div class="m-3">Expertise: {{ mentor_profile.mentor_expertise }}</div>
-    <div class="m-3">About: {{ mentor_profile.mentor_about }}</div>
-    <div class="m-3">Years of Experience: {{ mentor_profile.mentor_years_of_experience }}</div>
-</div>
 {% endblock %}
+<<<<<<<<< Temporary merge branch 1
+=========
 
+>>>>>>>>> Temporary merge branch 2

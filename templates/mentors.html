@@ -6,13 +6,73 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-12">
-            <h2>Mentors</h2>
-            {% for mentor_profile in object_list %}
-            <div>{{ mentor_profile.mentor_name }}</div>
-            <a href="{% url 'mentor_profile_page' mentor_profile.pk %}">Link to mentor's profile</a>
-            {% endfor %}
+        <h2 class="mt-3">Mentors</h2>
+            <div class="row text-center mx-auto">
+                {% for mentor in object_list %}
+                <div class="card my-3 mx-5" style="width: 18rem;">
+                    {% if "placeholder" in mentor.mentor_image.url %}
+                    <img id="mentor-profile-img" class="rounded-circle" src="https://thumbs.dreamstime.com/z/happy-person-portrait-smiling-woman-tanned-skin-curly-hair-happy-person-portrait-smiling-young-friendly-woman-197501184.jpg" alt="">
+                    {% else %}
+                    <img id="mentor-profile-img" src=" {{ mentor.mentor_image.url }}" class="rounded-circle" alt="">
+                    {% endif %} <div class="card-body">
+                        <h5 class="card-title">{{ mentor.mentor_name }}</h5>
+                        <p class="card-text">{{ mentor.mentor_expertise }}</p>
+                        <p class="card-text">{{ mentor.mentor_years_of_experience }} years in business</p>
+                        <a href="{% url 'mentor_profile_page' pk=mentor.mentor_name.pk %}" class="mentor-profile-btn btn">Book a session</a>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 %}
+                    <div class="row card-container">
+                {% endif %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>
+
+<!-- Pagination -->
+<ul class="pagination justify-content-center mt-5">
+    {% if page_obj.has_previous %}
+    <li class="page-item m-1">
+        <a href="?page=1" class="page-link directory-pag-a">&laquo; First</a>
+    </li>
+    <li class="page-item m-1">
+        <a href="?page={{ page_obj.previous_page_number }}" class="page-link directory-pag-a">Previous</a>
+    </li>
+    {% else %}
+    <li class="page-item m-1">
+        <a href="#" class="page-link directory-pag-a">&laquo; First</a>
+    </li>
+    <li class="page-item m-1">
+        <a href="#" class="page-link directory-pag-a">Previous</a>
+    </li>
+
+    {% endif %}
+
+    {% for i in page_obj.paginator.page_range %}
+    {% if page_obj.number == i %}
+    <li class="page-item m-1"><a href="#" class="page-link directory-pag-a">{{ i }}</a></li>
+    {% else %}
+    <li class="page-item m-1"><a class="page-link directory-pag-a" href="?page={{ i }}">{{ i }}</a></li>
+    {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+    <li class="page-item m-1">
+        <a href="?page={{ page_obj.next_page_number }}" class="page-link directory-pag-a">Next</a>
+    </li>
+    <li class="page-item m-1">
+        <a href="?page={{ page_obj.paginator.num_pages }}" class="page-link directory-pag-a">Last &raquo;</a>
+    </li>
+
+    {% else %}
+    <li class="page-item m-1">
+        <a href="#" class="page-link directory-pag-a">Next</a>
+    </li>
+    <li class="page-item m-1">
+        <a href="#" class="page-link directory-pag-a">Last &raquo;</a>
+    </li>
+
+    {% endif %}
+</ul>
 {% endblock %}

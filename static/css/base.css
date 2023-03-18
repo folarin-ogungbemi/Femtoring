@@ -159,33 +159,12 @@ FORM STYLE
     background-color: #0000002b;
 }
 
-#t-img1 {
-    background-image: url('https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    background-size: cover;
-    background-position: 100%;
+/* Mentors page */
+
+.pagination a {
+    background-color: #c57171;
+    color: black;
 }
-
-#t-img2 {
-    background-image: url('https://images.pexels.com/photos/7605971/pexels-photo-7605971.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    background-size: cover;
-    background-position: 50%;
-}
-
-#t-img3 {
-    background-image: url('https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    background-size: cover;
-    background-position: 30%;
-}
-
-/* Mentor profiles */
-
-#mentor-profile-img {
-    height: 190px;
-    float: right;
-    margin-top: 30px;
-    margin-right: 30px;
-}
-
 
 /*****************
 MEDIA-QUERIES
