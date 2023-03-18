@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views.generic import TemplateView, ListView, DetailView
-from django.views.generic.edit import FormView
 from django.views import generic, View
 from home.models import MentorsProfile, Mentor, User
 from home.forms import BookingForm
+from django.contrib import messages
 
 
 class HomePageView(TemplateView):
@@ -52,5 +52,8 @@ class BookingView(View):
             booking = form.save(commit=False)
             booking.mentor = mentor.mentor_name
             booking.save()
+            messages.success(request, 'Your booking was successful.')
             return redirect(reverse('home_page'))
+        elif form.errors:
+            messages.error(request, 'There was a problem submitting the form.')
         return render(request, "booking.html", {"mentor": mentor, "form": form})
