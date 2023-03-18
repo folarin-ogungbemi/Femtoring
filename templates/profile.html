@@ -13,6 +13,7 @@
     <div class="m-3">Expertise: {{ mentor_profile.mentor_expertise }}</div>
     <div class="m-3">About: {{ mentor_profile.mentor_about }}</div>
     <div class="m-3">Years of Experience: {{ mentor_profile.mentor_years_of_experience }}</div>
+    <a href="{% url 'booking_page' mentor_profile.pk %}">Contact this Mentor.</a>
 </div>
 {% endblock %}
 
