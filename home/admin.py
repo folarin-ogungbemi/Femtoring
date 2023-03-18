@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from home.models import User, Booking, Mentor, Woman
+from home.models import User, Booking, Mentor, Woman, MentorsProfile
 
 
 class CustomUserAdmin(UserAdmin):
@@ -24,9 +24,10 @@ class CustomUserAdmin(UserAdmin):
     search_fields = ('username', 'email',)
     ordering = ('id',)
 
+
 class WomanAdmin(UserAdmin):
     model = Woman
-    list_display = ('id', 'username', 'email', 'type', 'is_staff', 'is_active',)
+    list_display = ('username', 'email', 'type', 'is_staff', 'is_active',)
     list_filter = ('is_staff', 'is_active',)
     search_fields = ('username', 'email',)
     ordering = ('id',)
@@ -34,15 +35,20 @@ class WomanAdmin(UserAdmin):
 
 class MentorAdmin(UserAdmin):
     model = Mentor
-    list_display = ('id', 'username', 'email', 'type', 'is_staff', 'is_active',)
+    list_display = ('username', 'email', 'type', 'is_staff', 'is_active',)
     list_filter = ('is_staff', 'is_active',)
     search_fields = ('username', 'email',)
     ordering = ('id',)
 
 
+@admin.register(MentorsProfile)
+class MentorsProfileAdmin(admin.ModelAdmin):
+    model = MentorsProfile
+    list_display = ('mentor_name',)
+    search_fields = ('mentor_name',)
+
+
 admin.site.register(User, CustomUserAdmin)
-admin.site.register(Woman, WomanAdmin)
-admin.site.register(Mentor, MentorAdmin)
 
 
 @admin.register(Booking)

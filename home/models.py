@@ -1,19 +1,20 @@
+from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import BaseUserManager
 from datetime import datetime
+from cloudinary.models import CloudinaryField
 
 
 class User(AbstractUser):
     class Type(models.TextChoices):
         WOMAN = "WOMAN", "woman"
         MENTOR = "MENTOR", "mentor"
-
     type = models.CharField(
-        max_length=10, choices=Type.choices, default=Type.WOMAN)
+        max_length=10, choices=Type.choices)
 
     def __str__(self):
-        return self.type
+        return f"{self.username}"
 
 
 class WomanManager(BaseUserManager):
@@ -52,10 +53,33 @@ class Mentor(User):
     def save(self, *args, **kwargs):
         if not self.pk:
             self.type = User.Type.MENTOR
-            return super().save(*args, **kwargs)
+        super().save(*args, **kwargs)
+
+        # Check if the user has a mentor profile, if not create one
+        if not hasattr(self, 'mentor_profile'):
+            MentorsProfile.objects.create(user=self)
 
     def __str__(self):
         return self.username
+
+
+class MentorsProfile(models.Model):
+    mentor_id = models.AutoField(primary_key=True)
+    mentor_name = models.OneToOneField(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
+        related_name='mentor_profile')
+    mentor_image = CloudinaryField('image', default='placeholder')
+    mentor_expertise = models.CharField(
+        max_length=100, blank=False, null=False)
+    mentor_about = models.TextField(blank=False, null=False)
+    mentor_years_of_experience = models.PositiveIntegerField(
+        blank=True, null=True)
+    
+    class Meta:
+        ordering = ['-mentor_id']
+
+    def __str__(self):
+        return f"{self.user.username} Mentor"
 
 
 class Booking(models.Model):
