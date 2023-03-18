@@ -97,6 +97,15 @@ GENERAL STYLE
     margin-right: 30px;
 }
 
+/* Pagination */
+.pagination a {
+    background-color: #c57171;
+    color: black;
+}
+
+.mentor-profile-btn {
+    background-color: #d39898;
+}
 
 /*****************
 MEDIA-QUERIES
