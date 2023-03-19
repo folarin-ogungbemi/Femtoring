@@ -31,8 +31,8 @@ class MentorDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         mentor_profile = self.object.mentor_profile
-        print(mentor_profile)
         context['mentor_name'] = mentor_profile.mentor_name
+        context['mentor_slug'] = mentor_profile.slug
         context['mentor_image'] = mentor_profile.mentor_image
         context['mentor_expertise'] = mentor_profile.mentor_expertise
         context['mentor_about'] = mentor_profile.mentor_about
@@ -43,17 +43,17 @@ class MentorDetail(DetailView):
 
 
 class BookingView(View):
-    def get(self, request, pk=None):
+    def get(self, request, slug):
 
-        mentor = get_object_or_404(MentorsProfile, pk=pk)
+        mentor = get_object_or_404(MentorsProfile, slug=slug)
 
         form = BookingForm()
 
         return render(request, "booking.html", {"mentor": mentor, "form": form})
 
-    def post(self, request, pk=None):
+    def post(self, request, slug):
 
-        mentor = get_object_or_404(MentorsProfile, pk=pk)
+        mentor = get_object_or_404(MentorsProfile, slug=slug)
 
         form = BookingForm(data=request.POST)
         if form.is_valid():
