@@ -356,3 +356,10 @@ MEDIA-QUERIES
         width: 10rem;
     }
 }
+
+/* Footer */
+
+footer {
+    height: 50px;
+    background-color: #c57171;
+}
