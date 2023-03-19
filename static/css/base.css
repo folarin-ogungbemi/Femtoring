@@ -17,6 +17,10 @@ GENERAL STYLE
     box-sizing: border-box;
 }
 
+.f-text-main{
+    color: var(--col-main);
+}
+
 body{
     color: var(--col-dark);
     min-height: 100vh;
