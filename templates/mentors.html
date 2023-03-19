@@ -9,7 +9,7 @@
 
         <h2 class="mt-3 bottom-bar">Mentors</h2>
         <div class="row text-center mx-auto card-container">
-            {% for mentor in mentorsprofile %}
+            {% for mentor in object_list %}
             <div class="card my-3" style="width: 18rem;">
                 {% if "placeholder" in mentor.mentor_image.url %}
                 <div class="d-flex justify-content-center">
