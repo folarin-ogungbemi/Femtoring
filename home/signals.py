@@ -8,6 +8,6 @@ def create_mentors_profile(sender, instance, created, **kwargs):
     """
     Creates a Mentors Profile instance when a Mentor User is created.
     """
-    if created:
-        if instance.type == 'MENTOR':
-            MentorsProfile.objects.create(user=instance)
+    if created and instance.type == 'MENTOR':
+        MentorsProfile.objects.create(mentor_name=instance)
+
