@@ -42,13 +42,23 @@ MEDIA-QUERIES
 ABOUT US
 *************** */
 
-.col-col {
-    background-color: aqua;
+.col-col-3 {
+    /* background-color: aqua;*/
     padding: 5px;
-    border: 4px;
-    border-color: black;
-    margin: 1px;
+    margin: 10px;
 }
+
+.col-col {
+    /* background-color: aqua; */
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: aqua;
+}
+
+/*.col-img{
+    height: 300px;
+    width: 300px;
+}*/
 
 .element {
     // Three columns to start
@@ -58,8 +68,4 @@ ABOUT US
     @include media-breakpoint-up(md) {
       @include row-cols(5);
     }
-  }
-
-  .container {
-    background-color: darkorange;
   }
