@@ -27,10 +27,10 @@
                     <p class="card-text">{{ mentor.mentor_expertise }}</p>
                     <p class="card-text">{{ mentor.mentor_years_of_experience }} years in business</p>
                     <a href="{% url 'mentor_profile_page' slug=mentor.slug %}"
-                        class="action-btn">View profile</a>
+                        class="action-btn text-decoration-none">View profile</a>
                         <div class="row mt-2">
                             <a href="{% url 'booking_page' slug=mentor.slug %}"
-                        class="action-btn mx-auto">Book a session</a>
+                        class="action-btn mx-auto text-decoration-none">Book a session</a>
                     </div>
                 </div>
             </div>

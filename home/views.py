@@ -42,6 +42,11 @@ class MentorDetail(DetailView):
         context['mentor_about'] = mentor_profile.mentor_about
         context['mentor_years_of_experience'] = (
             mentor_profile.mentor_years_of_experience)
+        context['seminar_theme'] = mentor_profile.theme
+        context['seminar_location'] = mentor_profile.location
+        context['seminar_date'] = mentor_profile.date
+        context['seminar_time'] = mentor_profile.time
+        context['seminar_link'] = mentor_profile.link
         context['messages'] = Booking.objects.filter(mentor=self.object)
         return context
 

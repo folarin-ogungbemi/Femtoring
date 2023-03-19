@@ -20,7 +20,7 @@
             </div>
             {% else %}
             <div class="profile-img-bg">                            
-              <img class="mentor-profile-img" src=" {{ mentor_image.url }}" alt="{{ mentor_profile.mentor_name }} Profile picture">
+              <img class="profile-img" width="150" height="150" src=" {{ mentor_image.url }}" alt="{{ mentor_profile.mentor_name }} Profile picture">
             </div>
               {% endif %}
             <div class="container d-flex gap-2">
@@ -86,7 +86,7 @@
           {% else %}
           <div class="row">
             <div class="col-12">
-              <p class="text-center fs-2 fw-semibold mt-5 f-text-main">No Messages <i class="fa-solid fa-face-smile"></i></p>
+              <p class="text-center fs-2 fw-semibold mt-5 f-text-main">No Messages <i class="ps-2 fa-solid fa-face-smile"></i></p>
             </div>
           </div>
         {% endif %}
@@ -98,9 +98,28 @@
       <div class="container margin">
         <p class="fs-5 fw-semibold text-center text-uppercase">Mentors Seminars</p>
         <div class="row">
+          {% if seminar_theme %}
           <div class="col-12">
-            seminar one
+            <div class="container message-info py-2">
+              <div class="d-flex justify-content-between">
+                <div class="">
+                  <p><i class="fa-solid fa-location-dot f-text-main pe-2"></i>{{ seminar_location }}</p>
+                  <p class="f-link"><i class="fa-solid fa-link f-text-main  pe-2"></i>{{ seminar_link }}</p>
+                  <div class="d-flex justify-content-between gap-5">
+                    <small><i class="fa-solid fa-calendar-days pe-2 f-text-main"></i> {{ seminar_date }}</small>
+                    <small><i class="fa-sharp fa-solid fa-clock pe-2 f-text-main"></i>{{ seminar_time }}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+          {% else %}
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center fs-2 fw-semibold mt-5 f-text-main">Be on the look out!<i class="ps-2 fa-solid fa-face-smile"></i></p>
+            </div>
+          </div>
+          {% endif %}
         </div>
       </div>
     </div>
