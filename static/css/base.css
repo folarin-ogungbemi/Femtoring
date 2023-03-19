@@ -179,10 +179,11 @@ FORM STYLE
     margin-right: auto;
     width: 98%;
     min-height: 40vh;
-    background-color:#c57171;
+    background-color:var(--col-main);
     border: none;
-    box-shadow: 5px 10px 8px #888888;
-    border-radius: 5px;
+    box-shadow: var(--box-shadow-2);
+    border-radius: 10px;
+    padding: 0 1rem 0 1rem;
 }
 
 #info-container div {
@@ -351,7 +352,6 @@ MEDIA-QUERIES
 @media screen and (max-width: 1200px)  {
     .testimonial-box{
         width: 75%;
-        height: 40vh;
     }
     .testimonial-image{
         height: 10rem;
