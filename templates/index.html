@@ -6,25 +6,50 @@
 {% include "includes/messages.html" %}
 <div class="row no-gutters" id="hero-image-container">
     <div id="hero-image-overlay">
-        <h2 class="fs-1">Hero image Overlay</h2>
+        <h2 class="fs-1">Need some female mentoring?</h2>
         <a class="btn btn-primary" id="hero-button" href="{% url 'mentors_page' %}">Meet The Mentors</a>
     </div>
 </div>
 <div class="row text-center align-items-center container-fluid" id="info-container">
     <div class="col-12 col-md-4">
-        <h3>Information section 1</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum amet voluptate assumenda reprehenderit, quo doloribus nemo ex a exercitationem explicabo neque accusantium dolore, eveniet recusandae? Fugit rem delectus nostrum! Eaque?</p>
+        <h3>Advice:</h3>
+        <p> Insightful articles
+            written by mentors
+            for ambitious entry
+            level female
+            developers who want
+            to navigate
+            managerial roles. </p>
         <a href="{% url 'about_us_page' %}" class="text-decoration-none fs-5">About Us</a>
     </div>
     <div class="col-12 col-md-4">
-        <h3>Information section 1</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum amet voluptate assumenda reprehenderit, quo doloribus nemo ex a exercitationem explicabo neque accusantium dolore, eveniet recusandae? Fugit rem delectus nostrum! Eaque?</p>
+        <h3>Forge an invaluable
+            professional friendship:</h3>
+        <p>The opportunity to meet
+            with a leading female
+            within the industry with
+            a view to establishing a
+            long-term professional
+            relationship in forging a
+            career in tech.</p>
         <a href="{% url 'mentors_page' %}" class="text-decoration-none fs-5">Mentors</a>
     </div>
     <div class="col-12 col-md-4">
-        <h3>Information section 1</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum amet voluptate assumenda reprehenderit, quo doloribus nemo ex a exercitationem explicabo neque accusantium dolore, eveniet recusandae? Fugit rem delectus nostrum! Eaque?</p>
-        <a class="text-decoration-none fs-5" href="{% url 'account_signup' %}">Sign Up</a> 
+        <h3>Bookings:</h3>
+        <p>Book 1-2-1 with your
+            mentor and sign up to
+            events to network,
+            share knowledge and
+            experiences as well as
+            benefit from career
+            pathways with
+            opportunities for
+            advancement. </p>
+        {% if user.is_authenticated %}
+        <a class="text-decoration-none fs-5" href="{% url 'mentors_page' %}">Book a session</a>
+        {% else %}
+        <a class="text-decoration-none fs-5" href="{% url 'account_signup' %}">Sign Up</a>
+        {% endif %}
     </div>
 </div>
 <div class="container-fluid" id="testimonials-container">
@@ -32,20 +57,25 @@
         <div class="col-12 col-xl-3 testimonial-box card">
             <div class="testimonial-image img-fluid" id="t-img1"></div>
             <br>
-            <p>Name - Job/Role/Area of Interest</p>
-            <p class="fst-italic fw-bold">"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque et accusantium fuga."</p>
+            <p>Aine Hensley - Seeing is Believing</p>
+            <p class="fst-italic fw-bold">A former IT engineer turned teacher turned STEM advocate
+                with her 'Seeing is Believing' non-profit social enterprise</p>
         </div>
         <div class="col-12 col-xl-3 testimonial-box card">
             <div class="testimonial-image img-fluid" id="t-img2"></div>
             <br>
-            <p>Name - Job/Role/Area of Interest</p>
-            <p class="fst-italic fw-bold">"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque et accusantium fuga."</p>
+            <p>Milly Summers - AMHS (Child and Adolescent Mental Heath Services</p>
+            <p class="fst-italic fw-bold">Tech start-up investor and applies rocket science
+                background to product design for neurodivergent people.</p>
         </div>
         <div class="col-12 col-xl-3 testimonial-box card">
             <div class="testimonial-image img-fluid" id="t-img3"></div>
             <br>
-            <p>Name - Job/Role/Area of Interest</p>
-            <p class="fst-italic fw-bold">"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque et accusantium fuga."</p>
+            <p>Saskia Moyer - CTO at UTech</p>
+            <p class="fst-italic fw-bold">Former CTO at UTech a social media and teaching platform
+                for software developers or those who want to make the
+                transition into the tech industry with particular focus on
+                those from under-represented backgrounds.</p>
         </div>
     </div>
 </div>
