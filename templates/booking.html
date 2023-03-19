@@ -5,19 +5,23 @@
 
 {% block content %}
 <div class="form">
-    <div class="container booking-form">
+    <div class="container booking-form-box">
       <div class="row">
-        <div class="col-12 col-md-6">
-            <div class="my-5">
-                <h2>Contact {{ mentor.mentor_name }}</h2>
+        <div class="col-12 col-md-6 booking-form mx-auto">
+            <div class="my-2 d-flex justify-content-between">
+              {% if "placeholder" in mentor.mentor_image.url %}
+              <div class="t-profile-img-bg">                           
+                <img class="profile-img" width="100" height="100" src="https://res.cloudinary.com/dzdyzl4r5/image/upload/v1679168303/default-mentor_dm35yd.png" alt="">                            
+              </div>
+              {% else %}
+              <div class="t-profile-img-bg">                            
+                <img class="profile-img" width="100" height="100" src=" {{ mentor.mentor_image.url }}" alt="{{ mentor_profile.mentor_name }} Profile picture">
+              </div>
+                {% endif %}
+                <p class="fs-4 fw-bold">User: {{ request.user }}</p>
             </div>
           <form method="POST" action="{% url 'booking_page' mentor.pk %}">
             {% csrf_token %}
-              <div class="row">
-                <div class="col-12 col-md-6">
-                    <h3>User: {{ request.user }}</h3>
-                </div>
-              </div>
               <div class="row">
                 <div class="col-12 col-md-6">
                   {{ form.date | as_crispy_field }}
@@ -31,7 +35,7 @@
                   {{ form.message | as_crispy_field }}
                 </div>
               </div>
-              <button class="action-btn" type="submit">Submit</button>
+              <button class="action-btn mt-2 mb-3" type="submit">Submit</button>
           </form>
         </div>
       </div>

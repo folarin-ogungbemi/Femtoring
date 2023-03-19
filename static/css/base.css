@@ -82,6 +82,7 @@ FORM STYLE
     min-height: 88vh;
  }
 
+.booking-form-box,
 .box{
     position: absolute;
     top: 50%;
@@ -90,6 +91,7 @@ FORM STYLE
 }
 
 .bio-card,
+.booking-form,
 .form-allauth{
     border-radius: 10px;
     padding: 0 1rem 0 1rem;
@@ -225,6 +227,15 @@ FORM STYLE
     margin-right: 30px;
 }
 
+.f-link{
+    color: var(--col-main);
+}
+
+.f-link:hover{
+    color: var(--col-dark);
+    cursor: pointer;
+}
+
 .card-container {
     display: flex;
     justify-content: space-around;
@@ -277,18 +288,9 @@ FORM STYLE
     justify-content: space-around;
 }
 
-.element {
-    // Three columns to start
-    @include row-cols(3);
-  
-    // Five columns from medium breakpoint up
-    @include media-breakpoint-up(md) {
-      @include row-cols(5);
-    }
-  }
-    #hero-image-overlay{
-        width: 60%
-    }
+#hero-image-overlay{
+    width: 60%
+}
 
 
 /*****************
