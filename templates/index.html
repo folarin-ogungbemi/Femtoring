@@ -6,45 +6,27 @@
 {% include "includes/messages.html" %}
 <div class="row no-gutters" id="hero-image-container">
     <div id="hero-image-overlay">
-        <h2 class="fs-1">Need some female mentoring?</h2>
+
+        <h2 class="fs-1">Feel empowered with your own mentor</h2>
+
         <a class="btn btn-primary" id="hero-button" href="{% url 'mentors_page' %}">Meet The Mentors</a>
     </div>
 </div>
 <div class="row text-center align-items-center container-fluid" id="info-container">
     <div class="col-12 col-md-4">
-        <h3>Advice:</h3>
-        <p> Insightful articles
-            written by mentors
-            for ambitious entry
-            level female
-            developers who want
-            to navigate
-            managerial roles. </p>
+        <h3>What are we about?</h3>
+        <p>We have created a service that matches entry-level women in tech with those who are already established leaders in their field.</p>
         <a href="{% url 'about_us_page' %}" class="text-decoration-none fs-5">About Us</a>
     </div>
     <div class="col-12 col-md-4">
-        <h3>Forge an invaluable
-            professional friendship:</h3>
-        <p>The opportunity to meet
-            with a leading female
-            within the industry with
-            a view to establishing a
-            long-term professional
-            relationship in forging a
-            career in tech.</p>
+        <h3>What will you get from your mentor?</h3>
+        <p>We want to make women feel represented, guided towards making the best career choices for them and forge an invaluable working friendship.</p>
         <a href="{% url 'mentors_page' %}" class="text-decoration-none fs-5">Mentors</a>
     </div>
     <div class="col-12 col-md-4">
-        <h3>Bookings:</h3>
-        <p>Book 1-2-1 with your
-            mentor and sign up to
-            events to network,
-            share knowledge and
-            experiences as well as
-            benefit from career
-            pathways with
-            opportunities for
-            advancement. </p>
+        <h3>Why should you join us?</h3>
+        <p>By signing up, you will have access for booking 1-2-1 appointments, attend our events and interact with articles written by our mentors.</p>
+        <a class="text-decoration-none fs-5" href="{% url 'account_signup' %}">Sign Up</a> 
         {% if user.is_authenticated %}
         <a class="text-decoration-none fs-5" href="{% url 'mentors_page' %}">Book a session</a>
         {% else %}
@@ -57,26 +39,23 @@
         <div class="col-12 col-xl-3 testimonial-box card">
             <div class="testimonial-image img-fluid" id="t-img1"></div>
             <br>
-            <p>Aine Hensley - Seeing is Believing</p>
-            <p class="fst-italic fw-bold">A former IT engineer turned teacher turned STEM advocate
-                with her 'Seeing is Believing' non-profit social enterprise</p>
+            <p>Jesse Wong - Junior Developer /Front End /HTML|CSS|JS</p>
+            <p class="fst-italic fw-bold">"There aren't many people who look like me in this industry. It was a breath of fresh air meeting Aine, she started where I did and its empowering seeing where she is now. We meet regularly in a safe, private and non-judgemental space where I can share everything that is on my mind, ask questions and celebrate achievements with someone I know has my back."
+            </p>
         </div>
         <div class="col-12 col-xl-3 testimonial-box card">
             <div class="testimonial-image img-fluid" id="t-img2"></div>
             <br>
-            <p>Milly Summers - AMHS (Child and Adolescent Mental Heath Services</p>
-            <p class="fst-italic fw-bold">Tech start-up investor and applies rocket science
-                background to product design for neurodivergent people.</p>
+
+            <p>Talia Khan - Product Developer</p>
+            <p class="fst-italic fw-bold">"Maryam explained how crucial it was to find allies in an industry that doesn't normally open doors to people like me. Without her, I wouldn't have applied for a Senior Product Developer. Her advice has been invaluable."</p>
         </div>
         <div class="col-12 col-xl-3 testimonial-box card">
             <div class="testimonial-image img-fluid" id="t-img3"></div>
             <br>
-            <p>Saskia Moyer - CTO at UTech</p>
-            <p class="fst-italic fw-bold">Former CTO at UTech a social media and teaching platform
-                for software developers or those who want to make the
-                transition into the tech industry with particular focus on
-                those from under-represented backgrounds.</p>
-        </div>
+            <p>Esme Marsh - Solution Engineer</p>
+            <p class="fst-italic fw-bold">"Last week, I attended my first all-female networking event hosted by a collaboration of Femtoring and SheCanCode. I've never felt more seen! It was such a great experience to be surrounded like-minded people. I wish more people knew about the power of these networking events."</p>
+         </div>
     </div>
 </div>
 {% endblock %}
