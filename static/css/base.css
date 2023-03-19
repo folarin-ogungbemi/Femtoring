@@ -222,6 +222,11 @@ FORM STYLE
     justify-content: space-around;
 }
 
+.card-container {
+    display: flex;
+    justify-content: space-around;
+}
+
 .message-info{
     box-shadow: var(--box-shadow);
     border-radius: 5px;
@@ -281,8 +286,9 @@ FORM STYLE
 /*****************
 ABOUT US
 *************** */
-.about-img{
-    height: 100px;
+
+.about-img {
+    height: 300px;
 }
 
 .col-col-3 {
