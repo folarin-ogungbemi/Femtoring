@@ -41,18 +41,21 @@ MEDIA-QUERIES
 /*****************
 ABOUT US
 *************** */
+.about-img{
+    height: 100px;
+}
 
 .col-col-3 {
-    /* background-color: aqua;*/
     padding: 5px;
     margin: 10px;
+    margin-top: 50px;
 }
 
 .col-col {
     /* background-color: aqua; */
     padding: 5px;
     margin-bottom: 10px;
-    background-color: aqua;
+    margin-top: 50px;
 }
 
 /*.col-img{
