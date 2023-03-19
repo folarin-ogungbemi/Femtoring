@@ -263,6 +263,47 @@ FORM STYLE
     display: flex;
     justify-content: space-around;
 }
+
+/*****************
+ABOUT US
+*************** */
+.about-img{
+    height: 100px;
+}
+
+.col-col-3 {
+    padding: 5px;
+    margin: 10px;
+    margin-top: 50px;
+}
+
+.col-col {
+    /* background-color: aqua; */
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-top: 50px;
+}
+
+/*.col-img{
+    height: 300px;
+    width: 300px;
+}*/
+
+.element {
+    // Three columns to start
+    @include row-cols(3);
+  
+    // Five columns from medium breakpoint up
+    @include media-breakpoint-up(md) {
+      @include row-cols(5);
+    }
+  }
+    #hero-image-overlay{
+        width: 60%
+    }
+}
+
+
 /*****************
 MEDIA-QUERIES
 *************** */
@@ -287,9 +328,6 @@ MEDIA-QUERIES
     }
     .navbar-toggler{
         margin-right: -1rem !important;
-    }
-    #hero-image-overlay{
-        width: 60%
     }
 }
 
