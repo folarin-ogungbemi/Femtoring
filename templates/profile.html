@@ -3,8 +3,7 @@
 {% block title %} Mentor Profile {% endblock %}
 
 {% block content %}
-
-<div class="container-fluid mb-5">
+<div class="container my-5">
   <div class="row">
     <div class="col-12">
       <h2 class="bottom-bar">Mentor Profile</h2>
@@ -27,7 +26,7 @@
             <div class="container d-flex gap-2">
                 <p class="fw-semibold mt-3">{{ mentor_profile.mentor_name }}</p>
             </div>
-            <a href="{% url 'booking_page' mentor_profile.pk %}" class="btn action-btn">Contact Mentor</a>
+            <a href="{% url 'booking_page' mentor_profile.mentor_id %}" class="btn action-btn">contact mentor</a>
         </div>
         <div class="row">
           <div class="col-12 bio-card">
@@ -37,8 +36,49 @@
           </div>
         </div>
     </div>
-    <div class="col-10 col-md-6"> 
-    </div>
+    <div class="col-12 col-md-6">
+      <!--messages-->
+      <div class="container margin">
+          <p class="fs-5 fw-semibold text-center text-uppercase">Recent Messages</p>
+          <div class="row">
+              <!--forloop-->
+              <div class="col-12">
+                  <div class="container message-info py-2">
+                    <div class="d-flex justify-content-between">
+                      <div class="">
+                        <small><i class="fa-solid fa-user pe-2"></i>Messenger</small>
+                        <p>messages.title</p>
+                      </div>
+                      <i class="fa-solid fa-caret-down"></i>
+                    </div>
+                  </div>
+              </div>
+              <!--endfor-->
+              <div class="container user-message">
+                <div class="row">
+                  <div class="col-12">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente consequuntur dolores cumque nemo tenetur nostrum in quae et, suscipit officiis impedit quibusdam aspernatur distinctio optio, cupiditate repudiandae itaque? Alias dolorum ex tempora quas, eaque facere nobis sequi recusandae quibusdam voluptatem harum vel eligendi beatae assumenda sint debitis non id fugiat.
+                    </p>
+                    <span class="d-flex justify-content-end"><i class="fa-solid fa-trash open-trash-modal"></i></span>
+                  </div>
+                </div>
+              </div>
+              <div class="modal">
+                <div class="container delete-message-modal">
+                  <div class="row">
+                    <div class="col-12">
+                      <p>Are you sure you want to delete this message?</p>
+                      <div class="d-flex gap-3">
+                        <button class="btn btn-sm btn-danger">delete</button>
+                        <button class="close-message btn btn-sm btn-secondary">save</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
   </div>
 </div>
 {% endblock %}
