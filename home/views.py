@@ -26,7 +26,6 @@ class MentorsList(ListView):
 class MentorDetail(DetailView):
     model = Mentor
     template_name = 'profile.html'
-    context_object_name = 'profile'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
