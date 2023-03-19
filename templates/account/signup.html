@@ -1,21 +1,50 @@
 {% extends "base.html" %}
-{% load i18n %}
-{% load static %}
 
-{% block title %} Sign Up {% endblock %}
+{% load i18n %}
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<h1>{% trans "Sign Up" %}</h1>
-
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
-
+<div class="form">
+  <div class="container box">
+    <div class="row">
+      <div class="col-12 form-allauth">
+        <div class="mb-5 mt-2">
+          <h2 class="bottom-bar">{% trans "Sign Up" %}</h2>
+        </div>
+        <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-12 col-md-6">
+              {{ form.username | as_crispy_field }}
+            </div>
+            <div class="col-12 col-md-6">
+              {{ form.email | as_crispy_field }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              {{ form.password1 | as_crispy_field }}
+            </div>
+            <div class="col-12 col-md-6">
+              {{ form.password2 | as_crispy_field }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-4">
+              {{ form.user_type | as_crispy_field }}
+            </div>
+          </div>
+          {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+          <button class="action-btn" type="submit">{% trans "Sign Up" %}</button>
+          <div class="my-3">
+            <p>{% blocktrans %}Already have an account? <a  class="text-decoration-none f-text-link" href="{{ login_url }}">Sign in</a>.{% endblocktrans %}</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
