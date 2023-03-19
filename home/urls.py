@@ -9,4 +9,3 @@ urlpatterns = [
     path('mentors/<int:pk>', views.MentorDetail.as_view(), name="mentor_profile_page"),
     path('mentors/booking/', views.BookingView.as_view(), name='booking_page')
 ]
-
