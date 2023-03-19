@@ -314,6 +314,12 @@ ABOUT US
     margin-top: 50px;
 }
 
+.leading-women-img {
+    width: 15em;
+    height: 15em;
+    box-shadow: var(--box-shadow);
+}
+
 .element {
     // Three columns to start
     @include row-cols(3);
