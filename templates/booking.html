@@ -9,16 +9,13 @@
       <div class="row">
         <div class="col-12 col-md-6">
             <div class="my-5">
-                <h2 class="bottom-bar">Contact Mentor</h2>
+                <h2>Contact {{ mentor.mentor_name }}</h2>
             </div>
-          <form method="POST" action="{% url 'booking_page' %}">
+          <form method="POST" action="{% url 'booking_page' mentor.pk %}">
             {% csrf_token %}
-            <div class="row">
+              <div class="row">
                 <div class="col-12 col-md-6">
-                  {{ form.mentor | as_crispy_field }}
-                </div>
-                <div class="col-12 col-md-6">
-                  {{ form.user | as_crispy_field }}
+                    <h3>User: {{ request.user }}</h3>
                 </div>
               </div>
               <div class="row">
