@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from home import views
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     path('', views.HomePageView.as_view(), name='home_page'),
@@ -11,5 +12,5 @@ urlpatterns = [
         views.MentorDetail.as_view(), name="mentor_profile_page"),
     path(
         'mentors/booking/<int:pk>',
-        views.BookingView.as_view(), name='booking_page'),
+        login_required(views.BookingView.as_view()), name='booking_page'),
 ]
