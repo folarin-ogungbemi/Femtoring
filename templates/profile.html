@@ -38,6 +38,7 @@
         </div>
     </div>
     <!--check request here !-->
+    {% if profile.type == 'MENTOR' and request.user == mentor.name %}
     <div class="col-12 col-md-6">
       <div class="container margin">
           <p class="fs-5 fw-semibold text-center text-uppercase">Recent Messages</p>
@@ -93,6 +94,18 @@
         </div>
     </div>
     <!-- /close- check request here !-->
+    {% else %}
+    <div class="col-12 col-md-6">
+      <div class="container margin">
+        <p class="fs-5 fw-semibold text-center text-uppercase">Mentors Seminars</p>
+        <div class="row">
+          <div class="col-12">
+            seminar one
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
   </div>
 </div>
 {% endblock %}
