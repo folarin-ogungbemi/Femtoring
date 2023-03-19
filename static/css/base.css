@@ -198,7 +198,6 @@ FORM STYLE
     color: black;
 }
 
-
 /* Mentor profiles */
 .mentor-profile-img-bg{
     position: relative;
@@ -252,7 +251,10 @@ FORM STYLE
     padding: 2rem;
 }
 
-
+.card-container {
+    display: flex;
+    justify-content: space-around;
+}
 /*****************
 MEDIA-QUERIES
 *************** */

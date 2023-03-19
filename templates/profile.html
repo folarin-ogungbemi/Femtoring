@@ -26,7 +26,7 @@
             <div class="container d-flex gap-2">
                 <p class="fw-semibold mt-3">{{ mentor_profile.mentor_name }}</p>
             </div>
-            <a href="#" class="btn action-btn">contact mentor</a>
+            <a href="{% url 'booking_page' mentor_profile.mentor_id %}" class="btn action-btn">contact mentor</a>
         </div>
         <div class="row">
           <div class="col-12 bio-card">
