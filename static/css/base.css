@@ -153,7 +153,7 @@ FORM STYLE
 }
 
 #hero-button {
-    background-color:#d6b7b7;
+    background-color:var(--col-main);
     border: none;
 }
 
@@ -165,9 +165,9 @@ FORM STYLE
     margin-right: auto;
     width: 98%;
     min-height: 40vh;
-    background-color:#c57171;
+    background-color:var(--col-main);
     border: none;
-    box-shadow: 5px 10px 8px #888888;
+    box-shadow: var(--box-shadow-2);
     border-radius: 5px;
 }
 
@@ -183,9 +183,9 @@ FORM STYLE
 
 .testimonial-box {
     justify-content: center;
-    background-color: #6c5c5c65;
+    background-color: var(--col-light);
     margin-bottom: 5vh;
-    box-shadow: 5px 10px 8px #888888;
+    box-shadow: var(--box-shadow);    
 }
 
 .testimonial-image {
