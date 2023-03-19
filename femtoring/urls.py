@@ -15,9 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from .views import handler400, handler403, handler404, handler405, handler500
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('', include('home.urls')),
 ]
+
+# Error handler urls
+
+handler400 = femtoring.views.handler400
+handler403 = femtoring.views.handler403
+handler404 = femtoring.views.handler404
+handler405 = femtoring.views.handler405
+handler500 = femtoring.views.handler405
