@@ -25,8 +25,8 @@ urlpatterns = [
 
 # Error handler urls
 
-handler400 = femtoring.views.handler400
-handler403 = femtoring.views.handler403
-handler404 = femtoring.views.handler404
-handler405 = femtoring.views.handler405
-handler500 = femtoring.views.handler405
+handler400 = 'femtoring.views.handler400'
+handler403 = 'femtoring.views.handler403'
+handler404 = 'femtoring.views.handler404'
+handler405 = 'femtoring.views.handler405'
+handler500 = 'femtoring.views.handler500'
