@@ -10,7 +10,5 @@ urlpatterns = [
     path(
         'mentors/<int:pk>',
         views.MentorDetail.as_view(), name="mentor_profile_page"),
-    path(
-        'mentors/booking/<int:pk>',
-        login_required(views.BookingView.as_view()), name='booking_page'),
+    path('mentors/booking/<int:pk>', login_required(views.BookingView.as_view()), name='booking_page'),
 ]

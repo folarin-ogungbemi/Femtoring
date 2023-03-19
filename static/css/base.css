@@ -222,6 +222,11 @@ FORM STYLE
     justify-content: space-around;
 }
 
+.card-container {
+    display: flex;
+    justify-content: space-around;
+}
+
 .message-info{
     box-shadow: var(--box-shadow);
     border-radius: 5px;
@@ -264,11 +269,26 @@ FORM STYLE
     justify-content: space-around;
 }
 
+.element {
+    // Three columns to start
+    @include row-cols(3);
+  
+    // Five columns from medium breakpoint up
+    @include media-breakpoint-up(md) {
+      @include row-cols(5);
+    }
+  }
+    #hero-image-overlay{
+        width: 60%
+    }
+
+
 /*****************
 ABOUT US
 *************** */
-.about-img{
-    height: 100px;
+
+.about-img {
+    height: 300px;
 }
 
 .col-col-3 {
@@ -278,16 +298,10 @@ ABOUT US
 }
 
 .col-col {
-    /* background-color: aqua; */
     padding: 5px;
     margin-bottom: 10px;
     margin-top: 50px;
 }
-
-/*.col-img{
-    height: 300px;
-    width: 300px;
-}*/
 
 .element {
     // Three columns to start
@@ -302,6 +316,7 @@ ABOUT US
         width: 60%
     }
 }
+
 
 
 /*****************
