@@ -52,19 +52,10 @@
     <li class="page-item m-1">
         <a href="?page={{ page_obj.previous_page_number }}" class="page-link directory-pag-a">Previous</a>
     </li>
-    {% else %}
-    <li class="page-item m-1">
-        <a href="#" class="page-link directory-pag-a">First</a>
-    </li>
-    <li class="page-item m-1">
-        <a href="#" class="page-link directory-pag-a">Previous</a>
-    </li>
-
     {% endif %}
-
     {% for i in page_obj.paginator.page_range %}
     {% if page_obj.number == i %}
-    <li class="page-item m-1"><a href="#" class="page-link directory-pag-a">{{ i }}</a></li>
+    <li class="page-item m-1"><a class="page-link directory-pag-a text-decoration-underline" href="?page={{ i }}">{{ i }}</a></li>
     {% else %}
     <li class="page-item m-1"><a class="page-link directory-pag-a" href="?page={{ i }}">{{ i }}</a></li>
     {% endif %}
@@ -77,15 +68,6 @@
     <li class="page-item m-1">
         <a href="?page={{ page_obj.paginator.num_pages }}" class="page-link directory-pag-a">Last</a>
     </li>
-
-    {% else %}
-    <li class="page-item m-1">
-        <a href="#" class="page-link directory-pag-a">Next</a>
-    </li>
-    <li class="page-item m-1">
-        <a href="#" class="page-link directory-pag-a">Last</a>
-    </li>
-
     {% endif %}
 </ul>
 {% endblock %}

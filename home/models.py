@@ -120,7 +120,8 @@ class Booking(models.Model):
     slug = models.SlugField(max_length=50, default='')
     user = models.ForeignKey(Woman, on_delete=models.CASCADE,
                              related_name="user")
-    date = models.DateField(default=datetime.now, validators=[validate_date])
+    date = models.DateField(default=(datetime.now() + timedelta(days=1)),
+                            validators=[validate_date])
     time = models.TimeField(choices=TIMES, default=time(17, 00))
     message = models.TextField()
 
