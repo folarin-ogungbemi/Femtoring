@@ -3,36 +3,30 @@
 {% block title %} Mentor Profile {% endblock %}
 
 {% block content %}
-<<<<<<<<< Temporary merge branch 1
 <div class="container my-5">
-=========
-
-<div class="container-fluid mb-5">
->>>>>>>>> Temporary merge branch 2
   <div class="row">
     <div class="col-12">
       <h2 class="bottom-bar">Mentor Profile</h2>
     </div>
   </div>
 </div>
-{{mentor.mentor_name}}
 <div class="container">
   <div class="row">
     <div class="col-10 col-md-6 mx-auto">
         <div class="mb-5">
             {% if "placeholder" in mentor_image.url %}
-            <div class="mentor-profile-img-bg">                           
-              <img class="mentor-profile-img" width="150" height="150" src="https://res.cloudinary.com/dzdyzl4r5/image/upload/v1679168303/default-mentor_dm35yd.png" alt="">                            
+            <div class="profile-img-bg">                           
+              <img class="profile-img" width="150" height="150" src="https://res.cloudinary.com/dzdyzl4r5/image/upload/v1679168303/default-mentor_dm35yd.png" alt="">                            
             </div>
             {% else %}
-            <div class="mentor-profile-img-bg">                            
+            <div class="profile-img-bg">                            
               <img class="mentor-profile-img" src=" {{ mentor_image.url }}" alt="{{ mentor_profile.mentor_name }} Profile picture">
             </div>
               {% endif %}
             <div class="container d-flex gap-2">
                 <p class="fw-semibold mt-3">{{ mentor_name }}</p>
             </div>
-            <a href="{% url 'booking_page' mentor_profile.mentor_id %}" class="btn action-btn">contact mentor</a>
+            <a href="{% url 'booking_page' slug=mentor_slug %}" class="btn action-btn">contact mentor</a>
         </div>
         <div class="row">
           <div class="col-12 bio-card">

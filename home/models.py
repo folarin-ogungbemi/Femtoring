@@ -6,6 +6,9 @@ from datetime import datetime, time, timedelta
 from django.utils import timezone
 from cloudinary.models import CloudinaryField
 from django.core.exceptions import ValidationError
+import string
+import random
+from django.utils.text import slugify
 
 TIMES = ((time(16, 00), "16:00"), (time(16, 30), "16:30"), (time(17, 00), "17:00"),
          (time(17, 30), "17:30"), (time(18, 00), "18:00"), (time(18, 30), "18:30"),
@@ -25,6 +28,11 @@ class User(AbstractUser):
         MENTOR = "MENTOR", "mentor"
     type = models.CharField(
         max_length=10, choices=Type.choices)
+    slug = models.SlugField(max_length=50, unique=True, default='')
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.username)     
+        super(User, self).save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.username}"
@@ -70,17 +78,16 @@ class Mentor(User):
 
         # Check if the user has a mentor profile, if not create one
         if not hasattr(self, 'mentor_profile'):
-            MentorsProfile.objects.create(user=self)
+            MentorsProfile.objects.create(mentor_name=self)
 
     def __str__(self):
         return self.username
 
 
 class MentorsProfile(models.Model):
-    mentor_id = models.AutoField(primary_key=True)
     mentor_name = models.OneToOneField(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
-        related_name='mentor_profile')
+        User, on_delete=models.CASCADE, related_name='mentor_profile')
+    slug = models.SlugField(max_length=50,)
     mentor_image = CloudinaryField('image', default='placeholder')
     mentor_expertise = models.CharField(
         max_length=100, blank=False, null=False)
@@ -97,15 +104,20 @@ class MentorsProfile(models.Model):
     link = models.URLField(blank=True, null=True)
 
     class Meta:
-        ordering = ['-mentor_id']
+        ordering = ['-id']
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.mentor_name)
+        super(MentorsProfile, self).save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.mentor_name.username} Mentor"
 
 
 class Booking(models.Model):
-    mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE,
-                               related_name="book_mentor")
+    mentor = models.ForeignKey(
+        Mentor, on_delete=models.CASCADE, related_name="book_mentor")
+    slug = models.SlugField(max_length=50, default='')
     user = models.ForeignKey(Woman, on_delete=models.CASCADE,
                              related_name="user")
     date = models.DateField(default=datetime.now, validators=[validate_date])
@@ -114,6 +126,10 @@ class Booking(models.Model):
 
     class Meta:
         unique_together = [['mentor', 'date', 'time']]
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.mentor)
+        super(Booking, self).save(*args, **kwargs)
 
     def __str__(self):
         return f"A meeting with {self.mentor} has been booked by {self.user}."

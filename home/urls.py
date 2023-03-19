@@ -8,7 +8,9 @@ urlpatterns = [
     path('mentors/', views.MentorsList.as_view(), name='mentors_page'),
     path('about/', views.AboutView.as_view(), name='about_us_page'),
     path(
-        'mentors/<int:pk>',
+        'mentors/<slug:slug>/',
         views.MentorDetail.as_view(), name="mentor_profile_page"),
-    path('mentors/booking/<int:pk>', login_required(views.BookingView.as_view()), name='booking_page'),
+    path(
+        'mentors/booking/<slug:slug>/', login_required(
+            views.BookingView.as_view()), name='booking_page'),
 ]
