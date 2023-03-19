@@ -15,6 +15,7 @@ GENERAL STYLE
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .f-text-main{
@@ -50,7 +51,8 @@ header{
 }
 
 /* Buttons*/
-.action-btn{
+.action-btn-bg,
+.action-btn {
     color: var(--col-light) !important;
     background: var(--col-main);
     border: var(--col-main);
@@ -58,7 +60,12 @@ header{
     width: fit-content;
     padding: 5px 15px;
 }
-.action-btn:hover{
+
+.action-btn-bg {
+    padding: 20px 30px;
+}
+
+.action-btn:hover {
     color: var(--col-light) !important;
     background: var(--col-main) !important;
     border: var(--col-main);
@@ -133,6 +140,18 @@ FORM STYLE
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 80%;
+    padding: 2rem;
+    border-radius: 5px;
 }
 
 #hero-image-overlay{
@@ -150,11 +169,6 @@ FORM STYLE
 
 #hero-image-overlay p{
     color: #ffffff;
-}
-
-#hero-button {
-    background-color:#d6b7b7;
-    border: none;
 }
 
 /* Info box */
@@ -176,21 +190,8 @@ FORM STYLE
 }
 
 /* Testimonials */
-#testimonials-container{
-    width: 100%;
-    height: 60vh;
-}
-
-.testimonial-box {
-    justify-content: center;
-    background-color: #6c5c5c65;
-    margin-bottom: 5vh;
-    box-shadow: 5px 10px 8px #888888;
-}
 
 .testimonial-image {
-    height: 15rem;
-    width: 15rem;
     border-radius: 50%;
     background-color: #0000002b;
 }
@@ -210,6 +211,15 @@ FORM STYLE
     width: 160px;
     height: 160px;
 }
+
+.t-profile-img-bg {
+    position: relative;
+    border-radius: 50%;
+    background-color: var(--col-main);
+    width: 120px;
+    height: 120px;
+}
+
 
 .profile-img{
     border-radius: 100%;
@@ -277,18 +287,9 @@ FORM STYLE
     justify-content: space-around;
 }
 
-.element {
-    // Three columns to start
-    @include row-cols(3);
-  
-    // Five columns from medium breakpoint up
-    @include media-breakpoint-up(md) {
-      @include row-cols(5);
-    }
-  }
-    #hero-image-overlay{
-        width: 60%
-    }
+#hero-image-overlay {
+    width: 60%
+}
 
 
 /*****************
@@ -311,20 +312,9 @@ ABOUT US
     margin-top: 50px;
 }
 
-.element {
-    // Three columns to start
-    @include row-cols(3);
-  
-    // Five columns from medium breakpoint up
-    @include media-breakpoint-up(md) {
-      @include row-cols(5);
-    }
-  }
-    #hero-image-overlay{
-        width: 60%
-    }
+#hero-image-overlay {
+    width: 60%
 }
-
 
 
 /*****************
@@ -339,6 +329,10 @@ MEDIA-QUERIES
 @media screen and (max-width: 768px)  {
     .margin{
         margin-top: 5rem;
+    }
+
+    .testimonial-text {
+        margin-top: 1rem;
     }
 }
 @media screen and (max-width: 992px)  {
