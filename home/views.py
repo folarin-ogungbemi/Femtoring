@@ -75,7 +75,7 @@ class BookingView(View):
             return redirect(reverse('home_page'))
         elif form.errors:
             messages.error(request, 'There was a problem submitting the form.')
-        return render(request, {"mentor": mentor, "form": form})
+        return render(request, "booking.html", {"mentor": mentor, "form": form})
 
 
 class MentorMessageListView(ListView):
