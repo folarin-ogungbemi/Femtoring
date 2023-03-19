@@ -37,33 +37,37 @@
         </div>
     </div>
     <!--check request here !-->
+    {% if profile.type == 'MENTOR' and request.user == mentor_name %}
     <div class="col-12 col-md-6">
-      <!--messages-->
       <div class="container margin">
           <p class="fs-5 fw-semibold text-center text-uppercase">Recent Messages</p>
+          {% if messages %}
           <div class="row">
-              <!--forloop-->
+              {% for message in messages %}
               <div class="col-12">
                   <div class="container message-info py-2">
                     <div class="d-flex justify-content-between">
                       <div class="">
-                        <small><i class="fa-solid fa-user pe-2"></i>Messenger</small>
-                        <p>messages.title</p>
+                        <p><i class="fa-solid fa-user pe-2 f-text-main"></i>{{ message.user }}</p>
+                        <div class="d-flex justify-content-between gap-5">
+                          <small><i class="fa-solid fa-calendar-days pe-2 f-text-main"></i> {{ message.date }}</small>
+                          <small><i class="fa-sharp fa-solid fa-clock pe-2 f-text-main"></i>{{ message.time }}</small>
+                        </div>
                       </div>
                       <i class="fa-solid fa-caret-down"></i>
                     </div>
                   </div>
               </div>
-              <!--endfor-->
               <div class="container user-message">
                 <div class="row">
                   <div class="col-12">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente consequuntur dolores cumque nemo tenetur nostrum in quae et, suscipit officiis impedit quibusdam aspernatur distinctio optio, cupiditate repudiandae itaque? Alias dolorum ex tempora quas, eaque facere nobis sequi recusandae quibusdam voluptatem harum vel eligendi beatae assumenda sint debitis non id fugiat.
-                    </p>
-                    <span class="d-flex justify-content-end"><i class="fa-solid fa-trash open-trash-modal"></i></span>
+                    <p class="p-2">{{ message.message }}</p>
+                    <span class="d-flex justify-content-end"><i class="fa-solid fa-trash open-trash-modal text-danger"></i></span>
                   </div>
                 </div>
               </div>
+              {% endfor %}
+              <!--/open- Deleting Message Modal-->
               <div class="modal">
                 <div class="container delete-message-modal">
                   <div class="row">
@@ -71,15 +75,36 @@
                       <p>Are you sure you want to delete this message?</p>
                       <div class="d-flex gap-3">
                         <button class="btn btn-sm btn-danger">delete</button>
-                        <button class="close-message btn btn-sm btn-secondary">save</button>
+                        <button class="close-message btn btn-sm btn-success">save</button>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <!--/closed- Deleting Message Modal-->
           </div>
+          {% else %}
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center fs-2 fw-semibold mt-5 f-text-main">No Messages <i class="fa-solid fa-face-smile"></i></p>
+            </div>
+          </div>
+        {% endif %}
+        </div>
+    </div>
+    <!-- /close- check request here !-->
+    {% else %}
+    <div class="col-12 col-md-6">
+      <div class="container margin">
+        <p class="fs-5 fw-semibold text-center text-uppercase">Mentors Seminars</p>
+        <div class="row">
+          <div class="col-12">
+            seminar one
+          </div>
+        </div>
       </div>
-  </div>
+    </div>
+    {% endif %}
   </div>
 </div>
 {% endblock %}
