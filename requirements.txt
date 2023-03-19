@@ -1,5 +1,5 @@
 asgiref==3.6.0
-backports.zoneinfo==0.2.1
+backports.zoneinfo;python_version<"3.9"
 cloudinary==1.32.0
 crispy-bootstrap5==0.7
 dj-database-url==1.2.0
