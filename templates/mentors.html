@@ -21,14 +21,15 @@
                 <div class="d-flex justify-content-center">
                     <img class="mentor-profile-img" src=" {{ mentor.mentor_image.url }}" class="rounded-circle" alt="">
                 </div>
-                {% endif %} <div class="card-body">
+                {% endif %} 
+                <div class="card-body">
                     <h5 class="card-title">{{ mentor.mentor_name }}</h5>
                     <p class="card-text">{{ mentor.mentor_expertise }}</p>
                     <p class="card-text">{{ mentor.mentor_years_of_experience }} years in business</p>
-                    <a href="{% url 'mentor_profile_page' pk=mentor.pk %}"
+                    <a href="{% url 'mentor_profile_page' mentor.pk %}"
                         class="action-btn">View profile</a>
                         <div class="row mt-2">
-                    <a href="{% url 'booking_page' mentor.pk %}"
+                            <a href="{% url 'booking_page' mentor.pk %}"
                         class="action-btn mx-auto">Book a session</a>
                     </div>
                 </div>
