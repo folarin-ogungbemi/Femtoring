@@ -2,7 +2,8 @@ from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import BaseUserManager
-from datetime import datetime, time
+from datetime import datetime, time, timedelta
+from django.utils import timezone
 from cloudinary.models import CloudinaryField
 from django.core.exceptions import ValidationError
 
@@ -86,6 +87,14 @@ class MentorsProfile(models.Model):
     mentor_about = models.TextField(blank=False, null=False)
     mentor_years_of_experience = models.PositiveIntegerField(
         blank=True, null=True)
+    theme = models.CharField(max_length=200, blank=True, null=True)
+    location = models.CharField(max_length=254, default='Online')
+    date = models.DateField(
+        default=(
+            datetime.today() + timedelta(
+                days=(1 - datetime.today().weekday()) % 7 + 1)).date())
+    time = models.TimeField(default='17:00:00')
+    link = models.URLField(blank=True, null=True)
 
     class Meta:
         ordering = ['-mentor_id']
