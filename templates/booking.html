@@ -20,7 +20,7 @@
                 {% endif %}
                 <p class="fs-4 fw-bold">User: {{ request.user }}</p>
             </div>
-          <form method="POST" action="{% url 'booking_page' mentor.pk %}">
+          <form method="POST" action="{% url 'booking_page' slug=mentor.slug %}">
             {% csrf_token %}
               <div class="row">
                 <div class="col-12 col-md-6">
