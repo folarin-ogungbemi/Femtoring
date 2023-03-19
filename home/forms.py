@@ -1,6 +1,8 @@
 from django import forms
 from allauth.account.forms import SignupForm
-from home.models import User, Woman, Mentor, Booking 
+from home.models import User, Woman, Mentor, Booking
+from django.forms import CharField, Select
+from datetime import datetime, time
 
 
 class CustomSignupForm(SignupForm):
@@ -25,6 +27,14 @@ class CustomSignupForm(SignupForm):
 
 
 class BookingForm(forms.ModelForm):
+    message = forms.CharField(
+        label='Message', required=True,
+        widget=forms.Textarea(
+            attrs={'rows': 5, 'placeholder': "Enter your message here ..."}))
+
     class Meta:
         model = Booking
-        fields = ['user', 'mentor', 'date', 'date', 'time', 'message']
+        fields = ['date', 'time', 'message']
+        widgets = {
+            'date': forms.DateInput(attrs={'type': 'date'})
+        }
