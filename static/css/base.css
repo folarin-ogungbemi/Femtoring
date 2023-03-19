@@ -264,7 +264,6 @@ FORM STYLE
     justify-content: space-around;
 }
 
-
 .element {
     // Three columns to start
     @include row-cols(3);
@@ -277,6 +276,7 @@ FORM STYLE
     #hero-image-overlay{
         width: 60%
     }
+
 
 /*****************
 ABOUT US
@@ -297,7 +297,21 @@ ABOUT US
     margin-top: 50px;
 }
 
-/*** END ABOUT US   ***/
+.element {
+    // Three columns to start
+    @include row-cols(3);
+  
+    // Five columns from medium breakpoint up
+    @include media-breakpoint-up(md) {
+      @include row-cols(5);
+    }
+  }
+    #hero-image-overlay{
+        width: 60%
+    }
+}
+
+
 
 /*****************
 MEDIA-QUERIES
