@@ -2,4 +2,8 @@
 {% load static %}
 {% block title %} Forbidden {% endblock %}
 {% block content %}
+<div class="container m-5 text-center">
+    <h2>Forbidden</h2>
+    <a class="action-btn" href="{% url 'home_page' %}">Return Home</a>
+</div>
 {% endblock %}
