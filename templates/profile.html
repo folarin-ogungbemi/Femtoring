@@ -36,6 +36,8 @@
           </div>
         </div>
     </div>
+    <!--check request here !-->
+    {% if profile.type == 'MENTOR' and request.user == mentor_name or request.user.is_staff %}
     <div class="col-12 col-md-6">
       <!--messages-->
       <div class="container margin">
