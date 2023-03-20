@@ -314,6 +314,9 @@ FORM STYLE
     width: 60%
 }
 
+.visually-hidden {
+    display: none;
+}
 
 /*****************
 ABOUT US
