@@ -197,8 +197,8 @@ FORM STYLE
     position: relative;
     border-radius: 50%;
     background-color: var(--col-main);
-    width: 120px;
-    height: 120px;
+    width: 105px;
+    height: 105px;
 }
 
 
@@ -208,6 +208,11 @@ FORM STYLE
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+.mentor-profile-page,
+.mentor-page{
+    min-height: 85vh;
 }
 
 .mentor-profile-img {

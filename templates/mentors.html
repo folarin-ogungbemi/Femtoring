@@ -2,112 +2,114 @@
 {% load static %}
 {% block title %} Mentors {% endblock %}
 {% block content %}
-<div class="container my-5">
-    <div class="row">
-      <div class="col-12">
-        <h2 class="bottom-bar">Mentors</h2>
-      </div>
-    </div>
-</div>
-
-{% if mentors %}
-    <div class="container">
+<div class="mentor-page">
+    <div class="container my-5">
         <div class="row">
-            {% for mentor in mentors %}
-            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                <div class="my-3 mentor-card">
-                    <a href="{% url 'mentor_profile_page' slug=mentor.slug %}" class="d-flex justify-content-start">
-                        {% if "placeholder" in mentor.mentor_image.url %}
-                            <div class="d-flex justify-content-center">
-                                <img class="mentor-profile-img" width="100" height="100"
-                                    src="https://res.cloudinary.com/dzdyzl4r5/image/upload/v1679168303/default-mentor_dm35yd.png"
-                                    alt="default profile picture">
+          <div class="col-12">
+            <h2 class="bottom-bar">Mentors</h2>
+          </div>
+        </div>
+    </div>
+    
+    {% if mentors %}
+        <div class="container">
+            <div class="row">
+                {% for mentor in mentors %}
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                    <div class="my-3 mentor-card">
+                        <a href="{% url 'mentor_profile_page' slug=mentor.slug %}" class="d-flex justify-content-start">
+                            {% if "placeholder" in mentor.mentor_image.url %}
+                                <div class="d-flex justify-content-center">
+                                    <img class="mentor-profile-img" width="100" height="100"
+                                        src="https://res.cloudinary.com/dzdyzl4r5/image/upload/v1679168303/default-mentor_dm35yd.png"
+                                        alt="default profile picture">
+                                </div>
+                            {% else %}
+                                <div class="d-flex justify-content-center">
+                                    <img class="mentor-profile-img" width="100" height="100" src=" {{ mentor.mentor_image.url }}" alt="{{mentor.mentor_name}} profile picture">
+                                </div>
+                            {% endif %}
+                        </a>
+                        <div class="container mentor-info ms-0 ps-1">
+                            <div class="d-grid my-2">
+                                <a class="text-decoration-none f-link fw-semibold fs-5" href="{% url 'mentor_profile_page' slug=mentor.slug %}">{{ mentor.mentor_name }}</a>
+                                <small class="text-muted">{{ mentor.mentor_years_of_experience }} years in business</small>
                             </div>
-                        {% else %}
-                            <div class="d-flex justify-content-center">
-                                <img class="mentor-profile-img" width="100" height="100" src=" {{ mentor.mentor_image.url }}" alt="{{mentor.mentor_name}} profile picture">
+                            <div class="d-grid mt-2">
+                                <a href="{% url 'booking_page' slug=mentor.slug %}" class="action-btn text-decoration-none">Book a session</a>
                             </div>
-                        {% endif %}
-                    </a>
-                    <div class="container mentor-info ms-0 ps-1">
-                        <div class="d-grid my-2">
-                            <a class="text-decoration-none f-link fw-semibold fs-5" href="{% url 'mentor_profile_page' slug=mentor.slug %}">{{ mentor.mentor_name }}</a>
-                            <small class="text-muted">{{ mentor.mentor_years_of_experience }} years in business</small>
-                        </div>
-                        <div class="d-grid mt-2">
-                            <a href="{% url 'booking_page' slug=mentor.slug %}" class="action-btn text-decoration-none">Book a session</a>
                         </div>
                     </div>
                 </div>
-            </div>
-            {% if forloop.counter|divisibleby:2 %}
-                <div class="col-12 d-none d-sm-block d-md-block d-lg-none">
+                {% if forloop.counter|divisibleby:2 %}
+                    <div class="col-12 d-none d-sm-block d-md-block d-lg-none">
+                    </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:3 %}
+                <div class="col-12 d-none d-lg-block d-xl-none">
                 </div>
-            {% endif %}
-            {% if forloop.counter|divisibleby:3 %}
-            <div class="col-12 d-none d-lg-block d-xl-none">
+                {% endif %}
+                {% if forloop.counter|divisibleby:4 %}
+                    <div class="col-12 d-none d-xl-block">
+                    </div>
+                {% endif %}
+                {% endfor %}
             </div>
-            {% endif %}
-            {% if forloop.counter|divisibleby:4 %}
-                <div class="col-12 d-none d-xl-block">
-                </div>
-            {% endif %}
-            {% endfor %}
         </div>
+        <!-- pagination -->
+        {% if page_obj.has_other_pages %}
+        <nav>
+            <ul class="pagination justify-content-center mt-4 mb-2">
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link"
+                        href="?page=1{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">First</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link"
+                        href="?page={{ page_obj.previous_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">
+                        Previous
+                    </a>
+                </li>
+                {% endif %}
+    
+                {% for page_number in page_obj.paginator.page_range %}
+                {% if page_number <= page_obj.number|add:3 and page_number >= page_obj.number|add:-3 %}
+                {% if page_obj.number == page_number %}
+                <li class="page-item active">
+                    <a class="page-link"
+                        href="?page={{ page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">{{ page_number }}</a>
+                </li>
+                {% else %}
+                <li class="page-item">
+                    <a class="page-link"
+                        href="?page={{ page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">{{ page_number }}</a>
+                </li>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+    
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link"
+                        href="?page={{ page_obj.next_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">
+                        Next
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link"
+                        href="?page={{ page_obj.paginator.num_pages }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">
+                        Last
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
     </div>
-    <!-- pagination -->
-    {% if page_obj.has_other_pages %}
-    <nav>
-        <ul class="pagination justify-content-center mt-4 mb-2">
-            {% if page_obj.has_previous %}
-            <li class="page-item">
-                <a class="page-link"
-                    href="?page=1{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">First</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link"
-                    href="?page={{ page_obj.previous_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">
-                    Previous
-                </a>
-            </li>
-            {% endif %}
-
-            {% for page_number in page_obj.paginator.page_range %}
-            {% if page_number <= page_obj.number|add:3 and page_number >= page_obj.number|add:-3 %}
-            {% if page_obj.number == page_number %}
-            <li class="page-item active">
-                <a class="page-link"
-                    href="?page={{ page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">{{ page_number }}</a>
-            </li>
-            {% else %}
-            <li class="page-item">
-                <a class="page-link"
-                    href="?page={{ page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">{{ page_number }}</a>
-            </li>
-            {% endif %}
-            {% endif %}
-            {% endfor %}
-
-            {% if page_obj.has_next %}
-            <li class="page-item">
-                <a class="page-link"
-                    href="?page={{ page_obj.next_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">
-                    Next
-                </a>
-            </li>
-            <li class="page-item">
-                <a class="page-link"
-                    href="?page={{ page_obj.paginator.num_pages }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">
-                    Last
-                </a>
-            </li>
-            {% endif %}
-        </ul>
-    </nav>
+    {% else %}
+        <p class="text-center fs-2 fw-semibold mt-5 f-text-main">Hold tight. They will be here shortly.<i class="ps-2 fa-solid fa-face-smile"></i></p>
     {% endif %}
 </div>
-{% else %}
-    <p class="text-center fs-2 fw-semibold mt-5 f-text-main">Hold tight. They will be here shortly.<i class="ps-2 fa-solid fa-face-smile"></i></p>
-{% endif %}
 
 {% endblock %}
