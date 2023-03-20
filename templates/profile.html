@@ -45,7 +45,7 @@
             {% if messages %}
             <div class="row">
                 {% for message in messages %}
-                <div class="col-12">
+                <div class="col-12 mb-2">
                     <div class="container message-info py-2">
                       <div class="d-flex justify-content-between">
                         <div class="">
@@ -59,10 +59,10 @@
                       </div>
                     </div>
                 </div>
-                <div class="container user-message">
+                <div class="container user-message p-3">
                   <div class="row">
                     <div class="col-12">
-                      <p class="p-2">{{ message.message }}</p>
+                      <p>{{ message.message }}</p>
                       <span class="d-flex justify-content-end"><i class="fa-solid fa-trash open-trash-modal text-danger"></i></span>
                     </div>
                   </div>
