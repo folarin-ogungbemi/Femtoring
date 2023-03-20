@@ -141,13 +141,27 @@ Errors detected in instances of duplicated `id` during population of items to te
 |:--:|
 | <b>W3 Validator resolution</b>|
 
+# Mockups 
+
+Landing Page
+![Landing Page Mockup](static/images/landingmockup.png) 
+
+About Us Page
+![About Us Mockup](static/images/aboutusmockup.png)
+
+Mentors List Page
+![Mentors Page](static/images/mentorsmockup.png)
+
+Profile Page
+![Profile Page](static/images/profilemockup.png)
+
 # Bugs:
 
-    END
+    There was an application error when deploying Heroku where the clause was unclear. The repository was deployed using a new url. 
 
 ## Unsolved Bugs:
 
-    END
+    No unsolved bugs. 
 
 # Deployment:
 
