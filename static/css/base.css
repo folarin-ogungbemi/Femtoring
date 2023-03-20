@@ -368,6 +368,13 @@ MEDIA-QUERIES
     .testimonial-image{
         display: none;
     }
+
+    .footer-links{
+        gap: 1rem !important;
+    }
+    .copy{
+        padding-left: 0.5rem !important;
+    }
 }
 
 @media screen and (max-width: 768px)  {
@@ -411,10 +418,14 @@ footer {
 }
 
 footer a{
-    color: var(--col-dark);
+    color: var(--col-light);
     font-size: larger;
 }
 
 footer a:hover{
-    color: var(--col-light);
+    color: var(--col-dark);
+}
+
+.footer-links{
+    gap: 2rem !important;
 }
