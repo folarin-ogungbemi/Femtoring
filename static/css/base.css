@@ -400,6 +400,16 @@ MEDIA-QUERIES
 /* Footer */
 
 footer {
-    height: 50px;
+    padding: 0.5rem;
     background-color: #c57171;
+    color: var(--col-light);
+}
+
+footer a{
+    color: var(--col-dark);
+    font-size: larger;
+}
+
+footer a:hover{
+    color: var(--col-light);
 }
