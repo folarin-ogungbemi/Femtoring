@@ -1,1 +1,1 @@
-web: gunicorn femtoring.wsgi:application
+web: gunicorn femtoring.wsgi
