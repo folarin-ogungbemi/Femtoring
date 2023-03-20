@@ -4,44 +4,48 @@
 {% block title %} Home Page {% endblock %}
 {% block content %}
 {% include "includes/messages.html" %}
-<div class="container-fluid hero-bg">
+<div id="hero-image-container"></div>
+<div class="container">
     <div class="row">
         <div class="col-12">
-            <div id="hero-image-container"></div>
             <div class="row">
-                <div class="col-12 hero-text text-center">
-                    <h2 class="fs-1 mb-5 text-light">Feel empowered with your own mentor</h2>
-                    <a class="action-btn-bg text-decoration-none" href="{% url 'mentors_page' %}">Meet The Mentors</a>
+                <div class="col-12 hero-text">
+                    <h2 class="mb-5 text-light"><span>Feel empowered</span><br><span>with your own mentor.</span></h2>
+                    <a class="action-btn-bg text-decoration-none fs-3" href="{% url 'mentors_page' %}">Meet The Mentors</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="row text-center align-items-center container-fluid" id="info-container">
-    <div class="col-12 col-md-4">
-        <h3>What are we about?</h3>
-        <p>We have created a service that matches entry-level women in tech with those who are already established leaders in their field.</p>
-        <a href="{% url 'about_us_page' %}" class="text-decoration-none fs-5">About Us</a>
-    </div>
-    <div class="col-12 col-md-4">
-        <h3>What will you get from your mentor?</h3>
-        <p>We want to make women feel represented, guided towards making the best career choices for them and forge an invaluable working friendship.</p>
-        <a href="{% url 'mentors_page' %}" class="text-decoration-none fs-5">Mentors</a>
-    </div>
-    <div class="col-12 col-md-4">
-        <h3>Why should you join us?</h3>
-        <p>By signing up, you will have access for booking 1-2-1 appointments, attend our events and interact with articles written by our mentors.</p>
-        {% if user.is_authenticated %}
-        <a class="text-decoration-none fs-5" href="{% url 'mentors_page' %}">Book a session</a>
-        {% else %}
-        <a class="text-decoration-none fs-5" href="{% url 'account_signup' %}">Sign Up</a>
-        {% endif %}
+<div class="py-5 mb-5 benefits">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <p class="fs-4 fw-semibold">What are we about?</p>
+                <p>We have created a service that matches entry-level women in tech with those who are already established leaders in their field.</p>
+                <a href="{% url 'about_us_page' %}" class="text-decoration-none action-btn ">About Us</a>
+            </div>
+            <div class="col-12 col-md-4">
+                <p class="fs-4 fw-semibold">What will you get from your mentor?</p>
+                <p>We want to make women feel represented, guided towards making the best career choices for them and forge an invaluable working friendship.</p>
+                <a href="{% url 'mentors_page' %}" class="text-decoration-none action-btn ">Mentors</a>
+            </div>
+            <div class="col-12 col-md-4">
+                <p class="fs-4 fw-semibold">Why should you join us?</p>
+                <p>By signing up, you will have access for booking 1-2-1 appointments, attend our events and interact with articles written by our mentors.</p>
+                {% if user.is_authenticated %}
+                <a class="text-decoration-none action-btn" href="{% url 'mentors_page' %}">Book a session</a>
+                {% else %}
+                <a class="text-decoration-none action-btn" href="{% url 'account_signup' %}">Sign Up</a>
+                {% endif %}
+            </div>
+        </div>
     </div>
 </div>
 <div class="container">
     <div class="row">
         <div class="col-12 mb-5">
-            <h3 class="text-center">Testimonials</h3>
+            <h2 class="text-center">Testimonials</h2>
         </div>
     </div>
     <div class="row mb-5">
