@@ -1,4 +1,4 @@
-# Hackathon International Woman's Day - Women in Tech (Lack of representation)
+# Women in Tech (Lack of representation)
 
 | ![Landing Page Mockup](static/images/landingmockup.png) |
 |:--:|
