@@ -266,9 +266,10 @@ The link for the live website can be found here: https://femtoring.herokuapp.com
     * The postgreSQL Database used for the program.
 
 # Credits:
-
+Credits to Code Institute for the use of gitpod full template to start up the project
 # Media:
-
+Some Images used as mentors were a product of pexels and Unsplash
 The images were all extracted from Google Images.
 
 # Acknowledgements:
+To the Squash bugs and eMerge triumphant Team for giving their best up till the last minute. Great work guys
