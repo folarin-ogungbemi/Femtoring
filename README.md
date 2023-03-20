@@ -1,6 +1,6 @@
 # Hackathon International Woman's Day - Women in Tech (Lack of representation)
 
-| ![femtoring home page](static/images/readme-header-femtoring.png) |
+| ![Landing Page Mockup](static/images/landingmockup.png) |
 |:--:|
 | <b>Femtoring</b>|
 
