@@ -24,7 +24,7 @@ class MentorsList(ListView):
     model = MentorsProfile
     template_name = "mentors.html"
     context_object_name = "mentors"
-    paginate_by = 6
+    paginate_by = 8
 
 
 class MentorDetail(DetailView):

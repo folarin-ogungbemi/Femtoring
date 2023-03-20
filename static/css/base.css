@@ -212,8 +212,35 @@ FORM STYLE
 
 .mentor-profile-img {
     border-radius: 100%;
-    margin-top: 10px;
-    margin-right: 10px;
+}
+
+.mentor-card{
+    background-image: linear-gradient(135deg, var(--col-light) 10%, var(--col-light) 37%, var(--col-main) 160%);
+    box-shadow: var(--box-shadow);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    padding: 2rem;
+    border-radius: 5px;
+    width: 220px;
+    margin: auto;
+}
+
+.mentor-card:hover{
+    box-shadow: var(--box-shadow-2);
+}
+
+.page-link{
+    color: var(--col-dark);
+}
+
+.active>.page-link{
+    background-color: var(--col-main);
+    border-color: var(--col-main);
+}
+
+.active>.page-link:hover{
+    background-color: var(--col-dark);
+    border-color: var(--col-dark);
 }
 
 .f-link{
@@ -306,6 +333,27 @@ ABOUT US
 #hero-image-overlay {
     width: 60%
 }
+
+/*  *****************
+    SCROLL-BAR STYLE
+    *************** */
+
+    ::-webkit-scrollbar{
+        width: 0.6rem;
+    }
+    
+    ::-webkit-scrollbar-track{
+        background-color: var(--col-light);
+    }
+    
+    ::-webkit-scrollbar-thumb{
+        background-color:rgb(197, 113, 113, 0.7);
+        border-radius: 100vw;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover{
+        background-color:var(--col-dark);
+    }
 
 
 /*****************
