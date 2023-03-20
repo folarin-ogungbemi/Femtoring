@@ -8,7 +8,7 @@ This website represents a solution to a very common issue in the world, women's 
 
 This is done by creating a portal-type site where members can see the mentors, their achievements and where they work. Through this the user can log in as a mentor or user, and users can book an appointment and send a message to the mentor. 
 
-The link for the deployed site can be found here: https://femtoring.herokuapp.com/mentors/
+The link for the deployed site can be found here: https://femtoring.herokuapp.com
 
 # Audience:
 
@@ -192,7 +192,7 @@ To start this project, It is recommended to use the [template](https://github.co
                 ```
 
 
-The link for the live website can be found here: https://femtoring.herokuapp.com/mentors/
+The link for the live website can be found here: https://femtoring.herokuapp.com
 
 
 # Technologies
