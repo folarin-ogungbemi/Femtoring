@@ -48,6 +48,7 @@ These were created using Balsamiq, examples of the main pages below:
 
 - Mentor profiles: This is the page where the user can see the individual information on each mentor.
 
+
 | ![mentor profile page](static/images/mentor-profile-femtoring.png) |
 |:--:|
 | <b>Mentor profile page</b>|
@@ -73,7 +74,6 @@ These were created using Balsamiq, examples of the main pages below:
 - Users must be logged in before they can contact mentor.
 
 - 404 Page: if user navigates to page that doesn't exist 404 page comes up and presents link back to home.
-
 
 ## Features left to implement:
 
