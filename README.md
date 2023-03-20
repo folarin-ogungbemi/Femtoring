@@ -155,6 +155,22 @@ Mentors List Page
 Profile Page
 ![Profile Page](static/images/profilemockup.png)
 
+# Lighthouse 
+
+Landing Page 
+
+![Landing Page](static/images/landingpagelighthouse.png)
+
+Mentors Page
+
+![Mentors Page](static/images/mentorslighthouse.png)
+
+Profile Page
+
+![Profile Page](static/images/profilelighthouse.png)
+
+
+
 # Bugs:
 
     There was an application error when deploying Heroku where the clause was unclear. The repository was deployed using a new url. 
