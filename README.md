@@ -2,7 +2,9 @@
 
 This website represents a solution to a very common issue in the world, women's lack of representation. Its goal is to represent important women in tech, past and present, and to enable communication between them and women in tech so that the gap can be bridged.
 
-This is done by creating a blog-type site where members can see the mentors, their achievements and where they work. Through this the user can log in as a mentor or user, and users can book an appointment and send a message to the mentor. 
+This is done by creating a portal-type site where members can see the mentors, their achievements and where they work. Through this the user can log in as a mentor or user, and users can book an appointment and send a message to the mentor. 
+
+The link for the deployed site can be found here: https://femtoring.herokuapp.com/mentors/
 
 ## Audience:
 
@@ -13,15 +15,16 @@ stresses the importance of mentorship and providing guidance for other women in 
 
 These were created using Balsamiq, examples of the main pages below:
 
-| ![femtoring home wireframe](assets/readme_images/home-femtoring.png) |
+| ![femtoring home wireframe](static/images/home-femtoring.png) |
 |:--:|
 | <b>Home page wireframe</b>|
 
-| ![femtoring about wireframe](assets/readme_images/about-femtoring.png) |
+| ![femtoring about wireframe](static/images/about-femtoring.png) |
 |:--:|
 | <b>About us wireframe</b>|
 
-| ![femtoring mentors wireframe](assets/readme_images/mentors-femtoring.png) |
+| ![femtoring mentors wireframe](static/images/mentors-femtoring.png) |
+
 |:--:|
 | <b>Mentors page wireframe</b>|
 
@@ -37,6 +40,18 @@ These were created using Balsamiq, examples of the main pages below:
 
 - Mentor profiles: This is the page where the user can see the individual information on each mentor.
 
+- Sign Up: Visitors to site can sign up as a mentor or a user seeking mentorship.
+
+- Login: Visitors to site can log in if they have signed up already.
+
+- If Mentors are logged in they can view messages on their profile.
+
+- If any other user views mentor profile they can see seminars & events the mentor is involved in.
+
+- Contact Mentor: Users can choose a mentor and contact them to arrange a meeting. 
+
+- Users must be logged in before they can contact mentor.
+
 
 ## Features left to implement:
 
@@ -44,7 +59,26 @@ These were created using Balsamiq, examples of the main pages below:
 
 ## Testing:
 
-    ADD AT THE END
+### Manual Testing:
+  - Manual testing was carried out on each feature manually, details in following table:
+
+| Feature                                                                                        | Functioning            |
+| :--------------------------------------------------------------------------------------------- | :--------------------: |
+| Navigation Bar - all links direct user to correct site                                         |          Yes           |
+| Navigation Bar - Nav list reduces to burger icon for small screens                             |          Yes           |
+| Home page - contains info on site, working links around site and testimonials                  |          Yes           |
+| Home page - all elements on home page are responsive to different screen sizes                 |          Yes           |
+| About Page - contains info on motivations of site and influential women in tech                |          Yes           |
+| About Page - all elements on about page are responsive to different screen sizes               |          Yes           |
+| Mentor Page - contains profiles for different mentors with working links for each              |          Yes           |
+| Sign Up - visitor to site can sign up as a mentor or someone seeking mentorship                |          Yes           |
+| Login - visitor to site can sign in with valid credentials                                     |          Yes           |
+| Mentor Profile - contains individual information on each mentor                                |          Yes           |
+| Mentor Profile - when mentor logged in their messages are visible                              |          Yes           |
+| Mentor Profile - when other user views profile seminars/events are visible                     |          Yes           |
+| Contact Mentor - if user is logged in they can contact mentor                                  |          Yes           |
+| Contact Mentor - user can send a message to mentor                                             |          Yes           |
+| Mentor Profile - when other user views profile seminars/events are visible                     |          Yes           |
 
 ## Bugs:
 
@@ -69,7 +103,7 @@ This app is deployed on Heroku. The steps followed to deploy it are the followin
 - Wait for your app to be built
 
 
-The link for the live website can be found here: https://femtoring-team2.herokuapp.com/mentors/
+The link for the live website can be found here: https://femtoring.herokuapp.com/mentors/
 
 ## Credits:
 
