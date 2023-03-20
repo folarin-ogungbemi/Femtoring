@@ -39,7 +39,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://*.8000-folarinogungb-femtoring-cocwxzcxe0y.ws-eu90.gitpod.io/',
     'https://*.8000-folarinogungb-femtoring-3af5eilakby.ws-eu90.gitpod.io/',
     'https://*.8000-folarinogungb-femtoring-fqeo2f18c6j.ws-eu90.gitpod.io/',
-    'https://*.femtoring-team2.herokuapp.com/',
+    'https://*.femtoring.herokuapp.com/',
     ]
 
 
@@ -72,7 +72,7 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False
 ACCOUNT_USERNAME_MIN_LENGTH = 3
-LOGIN_URL = '/account/login/'
+LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/'
 

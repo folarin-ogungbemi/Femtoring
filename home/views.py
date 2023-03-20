@@ -4,6 +4,10 @@ from home.models import MentorsProfile, Mentor, User, Booking
 from home.forms import BookingForm
 from django.contrib import messages
 
+# Access security
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
+
 
 class HomePageView(TemplateView):
     """Render the homepage"""
@@ -20,7 +24,7 @@ class MentorsList(ListView):
     model = MentorsProfile
     template_name = "mentors.html"
     context_object_name = "mentors"
-    paginate_by = 6
+    paginate_by = 8
 
 
 class MentorDetail(DetailView):
@@ -38,23 +42,34 @@ class MentorDetail(DetailView):
         context['mentor_about'] = mentor_profile.mentor_about
         context['mentor_years_of_experience'] = (
             mentor_profile.mentor_years_of_experience)
+        context['seminar_theme'] = mentor_profile.theme
+        context['seminar_location'] = mentor_profile.location
+        context['seminar_date'] = mentor_profile.date
+        context['seminar_time'] = mentor_profile.time
+        context['seminar_link'] = mentor_profile.link
         context['messages'] = Booking.objects.filter(mentor=self.object)
         return context
 
 
+@method_decorator(login_required, name='dispatch')
 class BookingView(View):
+    """
+    Render the Booking Form and allow users
+    to send messages to respective mentors
+    """
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_active:
+            messages.error(self.request, "Permission denied!")
+            return redirect(reverse('home_page'))
+        return super().dispatch(request, *args, **kwargs)
+
     def get(self, request, slug):
-
         mentor = get_object_or_404(MentorsProfile, slug=slug)
-
         form = BookingForm()
-
         return render(request, "booking.html", {"mentor": mentor, "form": form})
 
     def post(self, request, slug):
-
         mentor = get_object_or_404(MentorsProfile, slug=slug)
-
         form = BookingForm(data=request.POST)
         if form.is_valid():
             form.instance.user = request.user
@@ -65,7 +80,7 @@ class BookingView(View):
             return redirect(reverse('home_page'))
         elif form.errors:
             messages.error(request, 'There was a problem submitting the form.')
-        return render(request, {"mentor": mentor, "form": form})
+        return render(request, "booking.html", {"mentor": mentor, "form": form})
 
 
 class MentorMessageListView(ListView):

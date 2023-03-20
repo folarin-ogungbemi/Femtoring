@@ -24,6 +24,7 @@ These were created using Balsamiq, examples of the main pages below:
 | <b>About us wireframe</b>|
 
 | ![femtoring mentors wireframe](static/images/mentors-femtoring.png) |
+
 |:--:|
 | <b>Mentors page wireframe</b>|
 
